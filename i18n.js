@@ -1,0 +1,776 @@
+/* ════════════════════════════════════════
+   OhhhTC!!! — i18n dictionary
+   PT is the base language (lives in MENU_DATA).
+   Dish names stay in Portuguese; descriptions,
+   section titles, tags and UI strings translate.
+   ════════════════════════════════════════ */
+const LANGS = ['pt', 'en', 'fr', 'es', 'it', 'de', 'zh'];
+
+/* Inline SVG flags (render on every OS — Windows has no flag emoji font) */
+const FLAGS = {
+  pt: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DA291C"/><rect width="12" height="20" fill="#046A38"/><circle cx="12" cy="10" r="3.2" fill="#FFE900" stroke="#6B3F1D" stroke-width=".8"/></svg>',
+  en: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="6"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="3"/><path d="M0 10h30M15 0v20" stroke="#fff" stroke-width="6"/><path d="M0 10h30M15 0v20" stroke="#C8102E" stroke-width="3"/></svg>',
+  fr: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>',
+  es: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#AA151B"/><rect y="4" width="30" height="12" fill="#F1BF00"/><rect x="13" y="7.5" width="4" height="5" fill="#AA151B"/></svg>',
+  it: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE2B37"/></svg>',
+  de: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.7" fill="#000"/><rect y="6.7" width="30" height="6.6" fill="#DD0000"/><rect y="13.3" width="30" height="6.7" fill="#FFCE00"/></svg>',
+  zh: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><path d="M7.5 1l1.18 3.45 3.58 0-2.9 2.15 1.04 3.45-2.9-2.15-2.9 2.15 1.04-3.45-2.9-2.15 3.58 0z" fill="#FFDE00"/><path d="M20.4 2.75l.41 1.2 1.25 0-1.01.75.36 1.2-1.01-.75-1.01.75.36-1.2-1.01-.75 1.25 0z" fill="#FFDE00"/><path d="M23.6 5.25l.41 1.2 1.25 0-1.01.75.36 1.2-1.01-.75-1.01.75.36-1.2-1.01-.75 1.25 0z" fill="#FFDE00"/><path d="M23.4 9.25l.41 1.2 1.25 0-1.01.75.36 1.2-1.01-.75-1.01.75.36-1.2-1.01-.75 1.25 0z" fill="#FFDE00"/><path d="M20.4 11.75l.41 1.2 1.25 0-1.01.75.36 1.2-1.01-.75-1.01.75.36-1.2-1.01-.75 1.25 0z" fill="#FFDE00"/></svg>'
+};
+
+const LANG_NAMES = {
+  pt: 'Português', en: 'English', fr: 'Français',
+  es: 'Español', it: 'Italiano', de: 'Deutsch', zh: '中文'
+};
+
+/* PT UI strings (fallbacks) */
+const UI_PT = {
+  heroSub:     'O mar e a terra no prato, com sabor e atitude',
+  vatNote:     'Todos os preços incluem IVA',
+  dishCount:   'pratos',
+  backToTop:   'Voltar ao topo',
+  langLabel:   'Idioma',
+  footerMsg:   'Feito com carinho, servido com orgulho. Obrigado por nos escolher.'
+};
+
+const I18N = {
+
+/* ────────────────────────────── ENGLISH ── */
+en: {
+  ui: {
+    heroSub:   'The sea and the land on your plate, with flavour and attitude',
+    vatNote:   'All prices include VAT',
+    dishCount: 'dishes',
+    backToTop: 'Back to top',
+    langLabel: 'Language',
+    footerMsg: 'Made with care, served with pride. Thank you for choosing us.'
+  },
+  sections: {
+    entradas:          { nome: 'Starters',            subtitulo: 'To start with attitude' },
+    carne:             { nome: 'Meat',                subtitulo: 'For those who resist the sea' },
+    peixe:             { nome: 'Fish',                subtitulo: 'The authentic taste of the sea, served unhurried' },
+    'bebidas-alcoolicas': { nome: 'Alcoholic Drinks', subtitulo: 'From vineyard to sea, chosen with care' },
+    'bebidas-sem-alcool': { nome: 'Non-Alcoholic',    subtitulo: 'Refreshment without compromise' },
+    sobremesas:        { nome: 'Desserts',            subtitulo: 'Calm after the tide' }
+  },
+  items: {
+    1:  { desc: 'House artisan bread' },
+    2:  { desc: 'Traditional corn bread' },
+    3:  { desc: 'House selection of starters' },
+    4:  { desc: 'Marinated in olive oil and aromatic herbs' },
+    5:  { desc: 'Fresh cheese (per piece)' },
+    6:  { desc: 'Aged cheese from the region' },
+    7:  { desc: 'Sautéed in garlic, olive oil and a touch of chilli' },
+    8:  { desc: 'Sautéed entrecôte with pickled red onions' },
+    9:  { desc: 'Crispy, served with citrus mayonnaise' },
+    10: { desc: 'A comforting classic with style' },
+    11: { desc: 'Juicy entrecôte, fries, turnip greens and house special sauce' },
+    12: { desc: 'Beef steak, fried egg, fries and special sauce' },
+    13: { desc: 'Selection of grilled meats' },
+    14: { desc: 'Sliced picanha with rice, black beans and fries' },
+    15: { desc: 'Grilled with rice and fries' },
+    16: { desc: 'Pork ribs with rice and fries' },
+    17: { desc: 'Beef steak, fried egg, fries and rice' },
+    18: { desc: 'Turkey steak, fried egg, fries and rice' },
+    19: { desc: 'Seasonal vegetables or mushrooms' },
+    20: { desc: 'Charcoal-grilled sardines, unlimited — as many as you like' },
+    21: { desc: 'Charcoal-grilled cod with side dish' },
+    22: { desc: 'Fresh cuttlefish grilled over charcoal' },
+    23: { desc: 'Fresh sea bream grilled over charcoal' },
+    24: { desc: 'Fresh squid grilled over charcoal' },
+    25: { desc: 'Charcoal-grilled salmon' },
+    26: { desc: 'With sweet potato and balsamic reduction' },
+    27: { desc: 'Over sweet potato, sautéed turnip greens and virgin olive oil' },
+    28: { desc: 'Stewed with white wine and fresh herbs (1 person)' },
+    29: { desc: 'With prawns and a touch of coriander (1 person)' },
+    30: { desc: 'Creamy rice with prawns and a touch of coriander (1 person)' },
+    31: { desc: 'Creamy rice with prawns (1 person)' },
+    32: { desc: 'Traditional stew with fresh fish and potato (2 people)' },
+    33: { desc: 'House wine' },
+    34: { desc: 'House wine — 1L jug' },
+    35: { desc: 'House wine on tap' },
+    36: { desc: 'House wine on tap — 1L jug' },
+    37: { desc: 'Artisan white or red sangria' },
+    38: { desc: 'Artisan white or red sangria, large' },
+    39: { desc: 'Artisan sangria with sparkling wine' },
+    40: { desc: 'Fresh draught beer' },
+    41: { desc: 'Beer in a tulip glass' },
+    42: { desc: 'Beer in a mug' },
+    43: { desc: 'Beer, 33cl bottle' },
+    44: { desc: 'Gluten-free beer, 33cl' },
+    45: { desc: 'Refreshing apple cider' },
+    46: { desc: 'Classic Portuguese liqueur' },
+    47: { desc: 'Selected whiskies' },
+    48: { desc: 'Classic port wine' },
+    49: { desc: 'Classic aperitif' },
+    50: { desc: 'Natural mineral water' },
+    51: { desc: 'Natural mineral water, 1 litre' },
+    52: { desc: 'Sparkling water' },
+    53: { desc: 'Flavoured sparkling water' },
+    54: { desc: 'Classic or sugar-free Pepsi' },
+    55: { desc: 'Sparkling lemonade' },
+    56: { desc: 'Orange or pineapple Sumol' },
+    57: { desc: 'Iced tea' },
+    58: { desc: 'Guaraná soft drink' },
+    59: { desc: 'Freshly squeezed' },
+    60: { desc: 'Homemade natural lemonade' },
+    61: { desc: 'Natural lemonade with fresh strawberries' },
+    62: { desc: 'Espresso' },
+    63: { desc: 'Decaffeinated coffee' },
+    64: { desc: 'Homemade chocolate mousse' },
+    65: { desc: 'Creamy fresh lime tart' },
+    66: { desc: 'Classic Portuguese dessert with condensed milk' },
+    67: { desc: 'Crispy mille-feuille with egg custard' },
+    68: { desc: 'Traditional homemade egg custard pudding' },
+    69: { desc: 'Cheesecake with red berry coulis' },
+    70: { desc: 'Irresistible chocolate dessert' },
+    71: { desc: 'Classic Portuguese meringue dessert' },
+    72: { desc: 'With freshly burnt sugar' },
+    73: { desc: 'Biscuit cake with cream' },
+    74: { desc: 'Your choice' },
+    75: { desc: 'Selection of fresh seasonal fruit' }
+  },
+  tags: {
+    'Para Começar': 'To Start', Entrada: 'Starter', Destaque: 'Featured', Clássico: 'Classic',
+    Partilha: 'To Share', Grelhado: 'Grilled', Vegetariano: 'Vegetarian', Brasa: 'Charcoal',
+    Peixe: 'Fish', Especial: 'Special', Vinho: 'Wine', Sangria: 'Sangria', Cerveja: 'Beer',
+    Cider: 'Cider', Licor: 'Liqueur', Whisky: 'Whisky', Porto: 'Port', Aperitivo: 'Aperitif',
+    Água: 'Water', Refrigerante: 'Soft Drink', Natural: 'Fresh', Café: 'Coffee',
+    Sobremesa: 'Dessert', Pastelaria: 'Pastry', Gelado: 'Ice Cream', Fresco: 'Fresh'
+  }
+},
+
+/* ────────────────────────────── FRANÇAIS ── */
+fr: {
+  ui: {
+    heroSub:   'La mer et la terre dans l’assiette, avec saveur et attitude',
+    vatNote:   'Tous les prix incluent la TVA',
+    dishCount: 'plats',
+    backToTop: 'Retour en haut',
+    langLabel: 'Langue',
+    footerMsg: 'Fait avec soin, servi avec fierté. Merci de nous avoir choisis.'
+  },
+  sections: {
+    entradas:          { nome: 'Entrées',              subtitulo: 'Pour commencer avec attitude' },
+    carne:             { nome: 'Viandes',              subtitulo: 'Pour ceux qui résistent à la mer' },
+    peixe:             { nome: 'Poissons',             subtitulo: 'Le goût authentique de la mer, servi sans hâte' },
+    'bebidas-alcoolicas': { nome: 'Boissons Alcoolisées', subtitulo: 'De la vigne à la mer, avec exigence' },
+    'bebidas-sem-alcool': { nome: 'Sans Alcool',       subtitulo: 'Fraîcheur sans compromis' },
+    sobremesas:        { nome: 'Desserts',             subtitulo: 'Le calme après la marée' }
+  },
+  items: {
+    1:  { desc: 'Pain artisanal maison' },
+    2:  { desc: 'Pain de maïs traditionnel' },
+    3:  { desc: 'Sélection d’entrées maison' },
+    4:  { desc: 'Marinées à l’huile d’olive et aux herbes aromatiques' },
+    5:  { desc: 'Fromage frais (à l’unité)' },
+    6:  { desc: 'Fromage affiné de la région' },
+    7:  { desc: 'Sauté à l’ail, à l’huile d’olive et touche de piment' },
+    8:  { desc: 'Entrecôte sautée avec oignons rouges marinés' },
+    9:  { desc: 'Croustillant, servi avec une mayonnaise citronnée' },
+    10: { desc: 'Le classique réconfortant, avec style' },
+    11: { desc: 'Entrecôte juteuse, frites, pousses de navet et sauce spéciale maison' },
+    12: { desc: 'Steak de bœuf, œuf au plat, frites et sauce spéciale' },
+    13: { desc: 'Sélection de viandes grillées' },
+    14: { desc: 'Picanha tranchée avec riz, haricots noirs et frites' },
+    15: { desc: 'Grillés avec riz et frites' },
+    16: { desc: 'Travers de porc avec riz et frites' },
+    17: { desc: 'Steak de bœuf, œuf au plat, frites et riz' },
+    18: { desc: 'Steak de dinde, œuf au plat, frites et riz' },
+    19: { desc: 'Légumes de saison ou champignons' },
+    20: { desc: 'Sardines grillées au feu de bois, à volonté' },
+    21: { desc: 'Morue grillée au feu de bois avec accompagnement' },
+    22: { desc: 'Seiches fraîches grillées au feu de bois' },
+    23: { desc: 'Dorade fraîche grillée au feu de bois' },
+    24: { desc: 'Calmars frais grillés au feu de bois' },
+    25: { desc: 'Saumon grillé au feu de bois' },
+    26: { desc: 'Avec patate douce et réduction balsamique' },
+    27: { desc: 'Sur patate douce, pousses de navet sautées et huile d’olive vierge' },
+    28: { desc: 'Mijotés au vin blanc et aux herbes fraîches (1 personne)' },
+    29: { desc: 'Avec crevettes et touche de coriandre (1 personne)' },
+    30: { desc: 'Riz crémeux aux crevettes et touche de coriandre (1 personne)' },
+    31: { desc: 'Riz crémeux aux crevettes (1 personne)' },
+    32: { desc: 'Chaudrée traditionnelle de poisson frais et pommes de terre (2 personnes)' },
+    33: { desc: 'Vin de la maison' },
+    34: { desc: 'Vin de la maison — pichet 1L' },
+    35: { desc: 'Vin de la maison au fût' },
+    36: { desc: 'Vin de la maison au fût — pichet 1L' },
+    37: { desc: 'Sangria artisanale blanche ou rouge' },
+    38: { desc: 'Sangria artisanale blanche ou rouge, grande' },
+    39: { desc: 'Sangria artisanale au vin pétillant' },
+    40: { desc: 'Bière pression fraîche' },
+    41: { desc: 'Bière en verre tulipe' },
+    42: { desc: 'Bière en chope' },
+    43: { desc: 'Bière en bouteille 33cl' },
+    44: { desc: 'Bière sans gluten 33cl' },
+    45: { desc: 'Cidre de pomme rafraîchissant' },
+    46: { desc: 'Liqueur portugaise classique' },
+    47: { desc: 'Whiskies sélectionnés' },
+    48: { desc: 'Porto classique' },
+    49: { desc: 'Apéritif classique' },
+    50: { desc: 'Eau minérale naturelle' },
+    51: { desc: 'Eau minérale naturelle 1 litre' },
+    52: { desc: 'Eau gazeuse' },
+    53: { desc: 'Eau gazeuse aromatisée' },
+    54: { desc: 'Pepsi classique ou sans sucre' },
+    55: { desc: 'Limonade gazeuse' },
+    56: { desc: 'Sumol orange ou ananas' },
+    57: { desc: 'Thé glacé' },
+    58: { desc: 'Soda au guarana' },
+    59: { desc: 'Pressé à la demande' },
+    60: { desc: 'Limonade naturelle maison' },
+    61: { desc: 'Limonade naturelle aux fraises fraîches' },
+    62: { desc: 'Café expresso' },
+    63: { desc: 'Café décaféiné' },
+    64: { desc: 'Mousse au chocolat maison' },
+    65: { desc: 'Tarte crémeuse au citron vert' },
+    66: { desc: 'Classique portugais au lait concentré' },
+    67: { desc: 'Mille-feuille croustillant à la crème d’œufs' },
+    68: { desc: 'Flan aux œufs traditionnel fait maison' },
+    69: { desc: 'Cheesecake au coulis de fruits rouges' },
+    70: { desc: 'Dessert chocolaté irrésistible' },
+    71: { desc: 'Molotof, meringue portugaise classique' },
+    72: { desc: 'Avec sucre caramélisé à la minute' },
+    73: { desc: 'Gâteau de biscuits à la crème' },
+    74: { desc: 'Au choix' },
+    75: { desc: 'Sélection de fruits frais de saison' }
+  },
+  tags: {
+    'Para Começar': 'Pour Commencer', Entrada: 'Entrée', Destaque: 'Signature', Clássico: 'Classique',
+    Partilha: 'À Partager', Grelhado: 'Grillé', Vegetariano: 'Végétarien', Brasa: 'Braise',
+    Peixe: 'Poisson', Especial: 'Spécial', Vinho: 'Vin', Sangria: 'Sangria', Cerveja: 'Bière',
+    Cider: 'Cidre', Licor: 'Liqueur', Whisky: 'Whisky', Porto: 'Porto', Aperitivo: 'Apéritif',
+    Água: 'Eau', Refrigerante: 'Soda', Natural: 'Frais', Café: 'Café',
+    Sobremesa: 'Dessert', Pastelaria: 'Pâtisserie', Gelado: 'Glace', Fresco: 'Frais'
+  }
+},
+/* ────────────────────────────── ESPAÑOL ── */
+es: {
+  ui: {
+    heroSub:   'El mar y la tierra en el plato, con sabor y actitud',
+    vatNote:   'Todos los precios incluyen IVA',
+    dishCount: 'platos',
+    backToTop: 'Volver arriba',
+    langLabel: 'Idioma',
+    footerMsg: 'Hecho con cariño, servido con orgullo. Gracias por elegirnos.'
+  },
+  sections: {
+    entradas:          { nome: 'Entrantes',             subtitulo: 'Para empezar con actitud' },
+    carne:             { nome: 'Carne',                 subtitulo: 'Para los que resisten al mar' },
+    peixe:             { nome: 'Pescado',               subtitulo: 'El sabor auténtico del mar, servido sin prisas' },
+    'bebidas-alcoolicas': { nome: 'Bebidas Alcohólicas', subtitulo: 'De la viña al mar, con criterio' },
+    'bebidas-sem-alcool': { nome: 'Sin Alcohol',        subtitulo: 'Frescura sin compromisos' },
+    sobremesas:        { nome: 'Postres',               subtitulo: 'La calma después de la marea' }
+  },
+  items: {
+    1:  { desc: 'Pan artesano de la casa' },
+    2:  { desc: 'Borra de maíz tradicional' },
+    3:  { desc: 'Selección de entrantes de la casa' },
+    4:  { desc: 'Marinadas en aceite de oliva y hierbas aromáticas' },
+    5:  { desc: 'Queso fresco (unidad)' },
+    6:  { desc: 'Queso curado de la región' },
+    7:  { desc: 'Salteado en ajo, aceite de oliva y toque de guindilla' },
+    8:  { desc: 'Entrecot salteado con cebolla roja encurtida' },
+    9:  { desc: 'Crujiente, servido con mayonesa cítrica' },
+    10: { desc: 'El clásico reconfortante con estilo' },
+    11: { desc: 'Entrecot jugoso, patatas fritas, grelos y salsa especial de la casa' },
+    12: { desc: 'Bistec de ternera, huevo frito, patatas fritas y salsa especial' },
+    13: { desc: 'Selección de carnes a la parrilla' },
+    14: { desc: 'Picaña en láminas con arroz, alubias negras y patatas fritas' },
+    15: { desc: 'A la parrilla con arroz y patatas fritas' },
+    16: { desc: 'Costillas de cerdo con arroz y patatas fritas' },
+    17: { desc: 'Bistec de ternera, huevo frito, patatas fritas y arroz' },
+    18: { desc: 'Bistec de pavo, huevo frito, patatas fritas y arroz' },
+    19: { desc: 'Verduras de temporada o champiñones' },
+    20: { desc: 'Sardinas a la brasa, sin límites — a voluntad' },
+    21: { desc: 'Bacalao a la brasa con acompañamiento' },
+    22: { desc: 'Chocos frescos a la brasa' },
+    23: { desc: 'Dorada fresca a la brasa' },
+    24: { desc: 'Calamares frescos a la brasa' },
+    25: { desc: 'Salmón a la brasa' },
+    26: { desc: 'Con boniato y reducción de balsámico' },
+    27: { desc: 'Sobre boniato, grelos salteados y aceite de oliva virgen' },
+    28: { desc: 'Estofados con vino blanco y hierbas frescas (1 persona)' },
+    29: { desc: 'Con gambas y toque de cilantro (1 persona)' },
+    30: { desc: 'Arroz meloso con gambas y toque de cilantro (1 persona)' },
+    31: { desc: 'Arroz meloso con gambas (1 persona)' },
+    32: { desc: 'Caldeirada tradicional con pescado fresco y patata (2 personas)' },
+    33: { desc: 'Vino de la casa' },
+    34: { desc: 'Vino de la casa — jarra 1L' },
+    35: { desc: 'Vino de la casa a presión' },
+    36: { desc: 'Vino de la casa a presión — jarra 1L' },
+    37: { desc: 'Sangría artesanal blanca o tinta' },
+    38: { desc: 'Sangría artesanal blanca o tinta, grande' },
+    39: { desc: 'Sangría artesanal con vino espumoso' },
+    40: { desc: 'Cerveza de barril fresca' },
+    41: { desc: 'Cerveza en copa tulipa' },
+    42: { desc: 'Cerveza en jarra' },
+    43: { desc: 'Cerveza en botella 33cl' },
+    44: { desc: 'Cerveza sin gluten 33cl' },
+    45: { desc: 'Sidra de manzana refrescante' },
+    46: { desc: 'Licor portugués clásico' },
+    47: { desc: 'Whiskies seleccionados' },
+    48: { desc: 'Oporto clásico' },
+    49: { desc: 'Aperitivo clásico' },
+    50: { desc: 'Agua mineral natural' },
+    51: { desc: 'Agua mineral natural 1 litro' },
+    52: { desc: 'Agua con gas' },
+    53: { desc: 'Agua con gas con sabor' },
+    54: { desc: 'Pepsi clásica o sin azúcar' },
+    55: { desc: 'Limonada gaseosa' },
+    56: { desc: 'Sumol de naranja o piña' },
+    57: { desc: 'Té helado' },
+    58: { desc: 'Refresco de guaraná' },
+    59: { desc: 'Exprimido en el momento' },
+    60: { desc: 'Limonada natural casera' },
+    61: { desc: 'Limonada natural con fresa fresca' },
+    62: { desc: 'Café expreso' },
+    63: { desc: 'Café descafeinado' },
+    64: { desc: 'Mousse de chocolate casera' },
+    65: { desc: 'Tarta cremosa de lima fresca' },
+    66: { desc: 'Clásico portugués con leche condensada' },
+    67: { desc: 'Milhojas crujiente con crema de yemas' },
+    68: { desc: 'Pudín de yemas tradicional casero' },
+    69: { desc: 'Cheesecake con coulis de frutos rojos' },
+    70: { desc: 'Postre de chocolate irresistible' },
+    71: { desc: 'Molotof, merengue portugués clásico' },
+    72: { desc: 'Con azúcar caramelizado en el momento' },
+    73: { desc: 'Tarta de galleta con crema' },
+    74: { desc: 'A elegir' },
+    75: { desc: 'Selección de fruta fresca de temporada' }
+  },
+  tags: {
+    'Para Começar': 'Para Empezar', Entrada: 'Entrante', Destaque: 'Destacado', Clássico: 'Clásico',
+    Partilha: 'Para Compartir', Grelhado: 'Parrilla', Vegetariano: 'Vegetariano', Brasa: 'Brasa',
+    Peixe: 'Pescado', Especial: 'Especial', Vinho: 'Vino', Sangria: 'Sangría', Cerveja: 'Cerveza',
+    Cider: 'Sidra', Licor: 'Licor', Whisky: 'Whisky', Porto: 'Oporto', Aperitivo: 'Aperitivo',
+    Água: 'Agua', Refrigerante: 'Refresco', Natural: 'Natural', Café: 'Café',
+    Sobremesa: 'Postre', Pastelaria: 'Repostería', Gelado: 'Helado', Fresco: 'Fresco'
+  }
+},
+
+/* ────────────────────────────── ITALIANO ── */
+it: {
+  ui: {
+    heroSub:   'Il mare e la terra nel piatto, con sapore e attitudine',
+    vatNote:   'Tutti i prezzi includono l’IVA',
+    dishCount: 'piatti',
+    backToTop: 'Torna su',
+    langLabel: 'Lingua',
+    footerMsg: 'Fatto con cura, servito con orgoglio. Grazie per averci scelto.'
+  },
+  sections: {
+    entradas:          { nome: 'Antipasti',             subtitulo: 'Per iniziare con stile' },
+    carne:             { nome: 'Carne',                 subtitulo: 'Per chi resiste al mare' },
+    peixe:             { nome: 'Pesce',                 subtitulo: 'Il sapore autentico del mare, servito senza fretta' },
+    'bebidas-alcoolicas': { nome: 'Bevande Alcoliche',  subtitulo: 'Dalla vigna al mare, con criterio' },
+    'bebidas-sem-alcool': { nome: 'Analcolici',         subtitulo: 'Freschezza senza compromessi' },
+    sobremesas:        { nome: 'Dolci',                 subtitulo: 'La calma dopo la marea' }
+  },
+  items: {
+    1:  { desc: 'Pane artigianale della casa' },
+    2:  { desc: 'Pane di mais tradizionale' },
+    3:  { desc: 'Selezione di antipasti della casa' },
+    4:  { desc: 'Marinate in olio d’oliva ed erbe aromatiche' },
+    5:  { desc: 'Formaggio fresco (al pezzo)' },
+    6:  { desc: 'Formaggio stagionato della regione' },
+    7:  { desc: 'Saltato in aglio, olio d’oliva e un tocco di peperoncino' },
+    8:  { desc: 'Entrecôte saltata con cipolla rossa in agrodolce' },
+    9:  { desc: 'Crocante, servito con maionese agli agrumi' },
+    10: { desc: 'Il classico confortevole con stile' },
+    11: { desc: 'Entrecôte succulenta, patatine, cime di rapa e salsa speciale della casa' },
+    12: { desc: 'Bistecca di manzo, uovo fritto, patatine e salsa speciale' },
+    13: { desc: 'Selezione di carni alla griglia' },
+    14: { desc: 'Picanha affettata con riso, fagioli neri e patatine' },
+    15: { desc: 'Alla griglia con riso e patatine' },
+    16: { desc: 'Costine di maiale con riso e patatine' },
+    17: { desc: 'Bistecca di manzo, uovo fritto, patatine e riso' },
+    18: { desc: 'Bistecca di tacchino, uovo fritto, patatine e riso' },
+    19: { desc: 'Verdure di stagione o funghi' },
+    20: { desc: 'Sardine alla brace, senza limiti — a volontà' },
+    21: { desc: 'Merluzzo alla brace con contorno' },
+    22: { desc: 'Seppie fresche alla brace' },
+    23: { desc: 'Orata fresca alla brace' },
+    24: { desc: 'Calamari freschi alla brace' },
+    25: { desc: 'Salmone alla brace' },
+    26: { desc: 'Con patata dolce e riduzione di balsamico' },
+    27: { desc: 'Su patata dolce, cime di rapa saltate e olio extravergine d’oliva' },
+    28: { desc: 'Stufati al vino bianco ed erbe fresche (1 persona)' },
+    29: { desc: 'Con gamberi e un tocco di coriandolo (1 persona)' },
+    30: { desc: 'Riso cremoso con gamberi e un tocco di coriandolo (1 persona)' },
+    31: { desc: 'Riso cremoso con gamberi (1 persona)' },
+    32: { desc: 'Zuppa di pesce tradizionale con pesce fresco e patate (2 persone)' },
+    33: { desc: 'Vino della casa' },
+    34: { desc: 'Vino della casa — caraffa 1L' },
+    35: { desc: 'Vino della casa alla spina' },
+    36: { desc: 'Vino della casa alla spina — caraffa 1L' },
+    37: { desc: 'Sangria artigianale bianca o rossa' },
+    38: { desc: 'Sangria artigianale bianca o rossa, grande' },
+    39: { desc: 'Sangria artigianale con vino spumante' },
+    40: { desc: 'Birra alla spina fresca' },
+    41: { desc: 'Birra in calice tulipano' },
+    42: { desc: 'Birra in boccale' },
+    43: { desc: 'Birra in bottiglia 33cl' },
+    44: { desc: 'Birra senza glutine 33cl' },
+    45: { desc: 'Sidro di mele rinfrescante' },
+    46: { desc: 'Liquore portoghese classico' },
+    47: { desc: 'Whisky selezionati' },
+    48: { desc: 'Porto classico' },
+    49: { desc: 'Aperitivo classico' },
+    50: { desc: 'Acqua minerale naturale' },
+    51: { desc: 'Acqua minerale naturale 1 litro' },
+    52: { desc: 'Acqua frizzante' },
+    53: { desc: 'Acqua frizzante aromatizzata' },
+    54: { desc: 'Pepsi classica o senza zucchero' },
+    55: { desc: 'Limonata gassata' },
+    56: { desc: 'Sumol all’arancia o all’ananas' },
+    57: { desc: 'Tè freddo' },
+    58: { desc: 'Bibita al guaranà' },
+    59: { desc: 'Spremuto al momento' },
+    60: { desc: 'Limonata naturale fatta in casa' },
+    61: { desc: 'Limonata naturale con fragole fresche' },
+    62: { desc: 'Caffè espresso' },
+    63: { desc: 'Caffè decaffeinato' },
+    64: { desc: 'Mousse al cioccolato fatta in casa' },
+    65: { desc: 'Torta cremosa al lime fresco' },
+    66: { desc: 'Classico portoghese con latte condensato' },
+    67: { desc: 'Millefoglie croccante con crema di uova' },
+    68: { desc: 'Flan di uova tradizionale fatto in casa' },
+    69: { desc: 'Cheesecake con coulis di frutti di bosco' },
+    70: { desc: 'Dolce al cioccolato irresistibile' },
+    71: { desc: 'Molotof, meringa portoghese classica' },
+    72: { desc: 'Con zucchero caramellato al momento' },
+    73: { desc: 'Torta di biscotti con crema' },
+    74: { desc: 'A scelta' },
+    75: { desc: 'Selezione di frutta fresca di stagione' }
+  },
+  tags: {
+    'Para Começar': 'Per Iniziare', Entrada: 'Antipasto', Destaque: 'In Evidenza', Clássico: 'Classico',
+    Partilha: 'Da Condividere', Grelhado: 'Griglia', Vegetariano: 'Vegetariano', Brasa: 'Brace',
+    Peixe: 'Pesce', Especial: 'Speciale', Vinho: 'Vino', Sangria: 'Sangria', Cerveja: 'Birra',
+    Cider: 'Sidro', Licor: 'Liquore', Whisky: 'Whisky', Porto: 'Porto', Aperitivo: 'Aperitivo',
+    Água: 'Acqua', Refrigerante: 'Bibita', Natural: 'Naturale', Café: 'Caffè',
+    Sobremesa: 'Dolce', Pastelaria: 'Pasticceria', Gelado: 'Gelato', Fresco: 'Fresco'
+  }
+},
+/* ────────────────────────────── DEUTSCH ── */
+de: {
+  ui: {
+    heroSub:   'Meer und Land auf dem Teller, mit Geschmack und Haltung',
+    vatNote:   'Alle Preise inkl. MwSt.',
+    dishCount: 'Gerichte',
+    backToTop: 'Nach oben',
+    langLabel: 'Sprache',
+    footerMsg: 'Mit Sorgfalt zubereitet, mit Stolz serviert. Danke, dass Sie uns gewählt haben.'
+  },
+  sections: {
+    entradas:          { nome: 'Vorspeisen',           subtitulo: 'Mit Attitüde beginnen' },
+    carne:             { nome: 'Fleisch',              subtitulo: 'Für alle, die dem Meer widerstehen' },
+    peixe:             { nome: 'Fisch',                subtitulo: 'Der authentische Geschmack des Meeres, ohne Eile serviert' },
+    'bebidas-alcoolicas': { nome: 'Alkoholische Getränke', subtitulo: 'Vom Weinberg zum Meer, mit Bedacht gewählt' },
+    'bebidas-sem-alcool': { nome: 'Alkoholfrei',       subtitulo: 'Erfrischung ohne Kompromisse' },
+    sobremesas:        { nome: 'Nachspeisen',          subtitulo: 'Die Ruhe nach der Flut' }
+  },
+  items: {
+    1:  { desc: 'Hausgemachtes Handwerksbrot' },
+    2:  { desc: 'Traditionelles Maismehlbrot' },
+    3:  { desc: 'Hausauswahl an Vorspeisen' },
+    4:  { desc: 'In Olivenöl und Kräutern mariniert' },
+    5:  { desc: 'Frischkäse (Stück)' },
+    6:  { desc: 'Alter Käse aus der Region' },
+    7:  { desc: 'In Knoblauch, Olivenöl und einer Prise Chili geschwenkt' },
+    8:  { desc: 'Geschwenktes Entrecôte mit eingelegten roten Zwiebeln' },
+    9:  { desc: 'Knusprig, mit Zitrusmayonnaise serviert' },
+    10: { desc: 'Der wohltuende Klassiker mit Stil' },
+    11: { desc: 'Saftiges Entrecôte, Pommes, Stielmus und hausgemachte Spezialsauce' },
+    12: { desc: 'Rindersteak, Spiegelei, Pommes und Spezialsauce' },
+    13: { desc: 'Auswahl an gegrilltem Fleisch' },
+    14: { desc: 'Picanha in Scheiben mit Reis, schwarzen Bohnen und Pommes' },
+    15: { desc: 'Gegrillt mit Reis und Pommes' },
+    16: { desc: 'Schweinerippchen mit Reis und Pommes' },
+    17: { desc: 'Rindersteak, Spiegelei, Pommes und Reis' },
+    18: { desc: 'Putensteak, Spiegelei, Pommes und Reis' },
+    19: { desc: 'Saisongemüse oder Pilze' },
+    20: { desc: 'Sardinen vom Holzkohlengrill, ohne Limit — nach Belieben' },
+    21: { desc: 'Kabeljau vom Holzkohlengrill mit Beilage' },
+    22: { desc: 'Frische Sepia vom Holzkohlengrill' },
+    23: { desc: 'Frische Goldbrasse vom Holzkohlengrill' },
+    24: { desc: 'Frische Tintenfische vom Holzkohlengrill' },
+    25: { desc: 'Lachs vom Holzkohlengrill' },
+    26: { desc: 'Mit Süßkartoffel und Balsamico-Reduktion' },
+    27: { desc: 'Auf Süßkartoffel, geschwenktem Stielmus und nativem Olivenöl' },
+    28: { desc: 'In Weißwein und frischen Kräutern geschmort (1 Person)' },
+    29: { desc: 'Mit Garnelen und einem Hauch Koriander (1 Person)' },
+    30: { desc: 'Cremiger Reis mit Garnelen und einem Hauch Koriander (1 Person)' },
+    31: { desc: 'Cremiger Reis mit Garnelen (1 Person)' },
+    32: { desc: 'Traditioneller Fischeintopf mit frischem Fisch und Kartoffeln (2 Personen)' },
+    33: { desc: 'Hauswein' },
+    34: { desc: 'Hauswein — Karaffe 1L' },
+    35: { desc: 'Hauswein vom Fass' },
+    36: { desc: 'Hauswein vom Fass — Karaffe 1L' },
+    37: { desc: 'Hausgemachte Sangria, weiß oder rot' },
+    38: { desc: 'Hausgemachte Sangria, weiß oder rot, groß' },
+    39: { desc: 'Hausgemachte Sangria mit Sekt' },
+    40: { desc: 'Frisches Bier vom Fass' },
+    41: { desc: 'Bier im Tulpenglas' },
+    42: { desc: 'Bier im Krug' },
+    43: { desc: 'Bier, Flasche 33cl' },
+    44: { desc: 'Glutenfreies Bier 33cl' },
+    45: { desc: 'Erfrischender Apfelcider' },
+    46: { desc: 'Klassischer portugiesischer Likör' },
+    47: { desc: 'Ausgewählte Whiskys' },
+    48: { desc: 'Klassischer Portwein' },
+    49: { desc: 'Klassischer Aperitif' },
+    50: { desc: 'Natürliches Mineralwasser' },
+    51: { desc: 'Natürliches Mineralwasser, 1 Liter' },
+    52: { desc: 'Sprudelwasser' },
+    53: { desc: 'Sprudelwasser mit Geschmack' },
+    54: { desc: 'Pepsi klassisch oder ohne Zucker' },
+    55: { desc: 'Sprudelnde Limonade' },
+    56: { desc: 'Sumol Orange oder Ananas' },
+    57: { desc: 'Eistee' },
+    58: { desc: 'Guaraná-Limonade' },
+    59: { desc: 'Frisch gepresst' },
+    60: { desc: 'Hausgemachte natürliche Limonade' },
+    61: { desc: 'Natürliche Limonade mit frischen Erdbeeren' },
+    62: { desc: 'Espresso' },
+    63: { desc: 'Entkoffeinierter Kaffee' },
+    64: { desc: 'Hausgemachte Schokoladenmousse' },
+    65: { desc: 'Cremige Limetten-Tarte' },
+    66: { desc: 'Portugiesischer Klassiker mit Kondensmilch' },
+    67: { desc: 'Knusprige Mille-Feuille mit Eiercreme' },
+    68: { desc: 'Traditioneller hausgemachter Eierpudding' },
+    69: { desc: 'Cheesecake mit roten Früchten' },
+    70: { desc: 'Unwiderstehliches Schokoladendessert' },
+    71: { desc: 'Molotof, portugiesische Baiserspezialität' },
+    72: { desc: 'Mit frisch karamellisiertem Zucker' },
+    73: { desc: 'Kekstorte mit Creme' },
+    74: { desc: 'Nach Wahl' },
+    75: { desc: 'Auswahl an frischem Saisonobst' }
+  },
+  tags: {
+    'Para Começar': 'Zum Start', Entrada: 'Vorspeise', Destaque: 'Empfohlen', Clássico: 'Klassiker',
+    Partilha: 'Zum Teilen', Grelhado: 'Gegrillt', Vegetariano: 'Vegetarisch', Brasa: 'Holzkohle',
+    Peixe: 'Fisch', Especial: 'Spezialität', Vinho: 'Wein', Sangria: 'Sangria', Cerveja: 'Bier',
+    Cider: 'Cider', Licor: 'Likör', Whisky: 'Whisky', Porto: 'Portwein', Aperitivo: 'Aperitif',
+    Água: 'Wasser', Refrigerante: 'Erfrischung', Natural: 'Natur', Café: 'Kaffee',
+    Sobremesa: 'Dessert', Pastelaria: 'Feingebäck', Gelado: 'Eis', Fresco: 'Frisch'
+  }
+},
+
+/* ────────────────────────────── 中文 ── */
+zh: {
+  ui: {
+    heroSub:   '海与陆，尽在盘中 — 有滋有味，有态度',
+    vatNote:   '所有价格均含税',
+    dishCount: '道菜',
+    backToTop: '返回顶部',
+    langLabel: '语言',
+    footerMsg: '用心烹制，自豪呈献。感谢您的选择。'
+  },
+  sections: {
+    entradas:          { nome: '前菜',                 subtitulo: '以态度开场' },
+    carne:             { nome: '肉类',                 subtitulo: '献给抵挡海洋诱惑的人' },
+    peixe:             { nome: '海鲜',                 subtitulo: '海洋的纯正风味，从容奉上' },
+    'bebidas-alcoolicas': { nome: '酒精饮品',          subtitulo: '从葡萄园到海洋，精挑细选' },
+    'bebidas-sem-alcool': { nome: '无酒精饮品',        subtitulo: '畅快清爽，毫不妥协' },
+    sobremesas:        { nome: '甜品',                 subtitulo: '潮水退去后的宁静' }
+  },
+  items: {
+    1:  { desc: '本店手工面包' },
+    2:  { desc: '传统玉米面包' },
+    3:  { desc: '本店精选开胃小食' },
+    4:  { desc: '以橄榄油和香草腌制' },
+    5:  { desc: '新鲜奶酪（单个）' },
+    6:  { desc: '本地陈年奶酪' },
+    7:  { desc: '以大蒜、橄榄油和辣椒翻炒' },
+    8:  { desc: '香炒牛里脊配腌红洋葱' },
+    9:  { desc: '外酥内嫩，佐柑橘蛋黄酱' },
+    10: { desc: '经典暖心，风味十足' },
+    11: { desc: '多汁牛里脊、薯条、嫩菜叶配秘制酱汁' },
+    12: { desc: '牛排、煎蛋、薯条配秘制酱汁' },
+    13: { desc: '精选烤肉拼盘' },
+    14: { desc: '切片巴西烤牛肉，配米饭、黑豆和薯条' },
+    15: { desc: '烤制，配米饭和薯条' },
+    16: { desc: '猪肋排，配米饭和薯条' },
+    17: { desc: '牛排、煎蛋、薯条和米饭' },
+    18: { desc: '火鸡排、煎蛋、薯条和米饭' },
+    19: { desc: '时令蔬菜或蘑菇' },
+    20: { desc: '炭火烤沙丁鱼，无限畅吃 — 任君享用' },
+    21: { desc: '炭火烤鳕鱼，配配菜' },
+    22: { desc: '炭火烤新鲜墨鱼' },
+    23: { desc: '炭火烤新鲜鲷鱼' },
+    24: { desc: '炭火烤新鲜鱿鱼' },
+    25: { desc: '炭火烤三文鱼' },
+    26: { desc: '配红薯和香醋汁' },
+    27: { desc: '铺于红薯上，配炒嫩菜叶和初榨橄榄油' },
+    28: { desc: '白葡萄酒香草炖煮（1人份）' },
+    29: { desc: '配大虾和一抹香菜（1人份）' },
+    30: { desc: '浓香虾仁烩饭，带一抹香菜（1人份）' },
+    31: { desc: '浓香虾仁烩饭（1人份）' },
+    32: { desc: '传统鲜鱼炖锅，配土豆（2人份）' },
+    33: { desc: '本店葡萄酒' },
+    34: { desc: '本店葡萄酒 — 1升壶装' },
+    35: { desc: '散装本店葡萄酒' },
+    36: { desc: '散装本店葡萄酒 — 1升壶装' },
+    37: { desc: '手工桑格利亚（白或红）' },
+    38: { desc: '手工桑格利亚（白或红），大份' },
+    39: { desc: '手工气泡酒桑格利亚' },
+    40: { desc: '新鲜生啤' },
+    41: { desc: '郁金香杯啤酒' },
+    42: { desc: '大杯啤酒' },
+    43: { desc: '瓶装啤酒 33cl' },
+    44: { desc: '无麸质啤酒 33cl' },
+    45: { desc: '清爽苹果西打' },
+    46: { desc: '经典葡萄牙利口酒' },
+    47: { desc: '精选威士忌' },
+    48: { desc: '经典波特酒' },
+    49: { desc: '经典开胃酒' },
+    50: { desc: '天然矿泉水' },
+    51: { desc: '天然矿泉水，1升' },
+    52: { desc: '气泡水' },
+    53: { desc: '风味气泡水' },
+    54: { desc: '经典或无糖百事可乐' },
+    55: { desc: '气泡柠檬汽水' },
+    56: { desc: '苏摩尔橙汁或菠萝汁' },
+    57: { desc: '冰茶' },
+    58: { desc: '瓜拉纳汽水' },
+    59: { desc: '现点现榨' },
+    60: { desc: '自制天然柠檬水' },
+    61: { desc: '天然柠檬水配新鲜草莓' },
+    62: { desc: '浓缩咖啡' },
+    63: { desc: '低因咖啡' },
+    64: { desc: '自制巧克力慕斯' },
+    65: { desc: '香滑青柠挞' },
+    66: { desc: '经典葡萄牙炼乳甜点' },
+    67: { desc: '酥脆千层酥配蛋奶酱' },
+    68: { desc: '传统自制鸡蛋布丁' },
+    69: { desc: '红莓酱芝士蛋糕' },
+    70: { desc: '令人无法抗拒的巧克力甜点' },
+    71: { desc: '莫洛托夫蛋白甜点，葡萄牙经典' },
+    72: { desc: '现烤焦糖糖霜' },
+    73: { desc: '奶油饼干蛋糕' },
+    74: { desc: '任君选择' },
+    75: { desc: '精选当季新鲜水果' }
+  },
+  tags: {
+    'Para Começar': '开胃', Entrada: '前菜', Destaque: '招牌', Clássico: '经典',
+    Partilha: '分享', Grelhado: '烤制', Vegetariano: '素食', Brasa: '炭火',
+    Peixe: '海鲜', Especial: '特色', Vinho: '葡萄酒', Sangria: '桑格利亚', Cerveja: '啤酒',
+    Cider: '西打', Licor: '利口酒', Whisky: '威士忌', Porto: '波特酒', Aperitivo: '开胃酒',
+    Água: '水', Refrigerante: '汽水', Natural: '鲜榨', Café: '咖啡',
+    Sobremesa: '甜品', Pastelaria: '糕点', Gelado: '冰淇淋', Fresco: '新鲜'
+  }
+}
+};
+
+/* ════════════════════════════════════════
+   I18N helpers — used by index.html
+════════════════════════════════════════ */
+let LANG = 'pt';
+
+const uiTxt   = k => (I18N[LANG]?.ui?.[k])      ?? UI_PT[k];
+const secNome = s => (I18N[LANG]?.sections?.[s.id]?.nome)      ?? s.nome;
+const secSub  = s => (I18N[LANG]?.sections?.[s.id]?.subtitulo) ?? s.subtitulo;
+const itemDesc = item => (I18N[LANG]?.items?.[item.id]?.desc)  ?? item.descricao;
+const tagTxt  = t => (I18N[LANG]?.tags?.[t]) ?? t;
+
+function setLang(l, apply = true) {
+  LANG = (l && LANGS.includes(l)) ? l : 'pt';
+  try { localStorage.setItem('ohhhtc-lang', LANG); } catch (e) {}
+  document.documentElement.lang = LANG;
+  if (apply) applyLangUI();
+}
+
+function detectLang() {
+  try {
+    const saved = localStorage.getItem('ohhhtc-lang');
+    if (saved && LANGS.includes(saved)) return saved;
+  } catch (e) {}
+  const nav = (navigator.language || 'pt').toLowerCase().slice(0, 2);
+  return LANGS.includes(nav) ? nav : 'pt';
+}
+
+function applyLangUI() {
+  const set = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+  set('heroSub', uiTxt('heroSub'));
+  set('vatNote', uiTxt('vatNote'));
+  set('footerMsg', uiTxt('footerMsg'));
+  const btn = document.getElementById('scrollTopBtn');
+  if (btn) btn.setAttribute('aria-label', uiTxt('backToTop'));
+  /* Language button + menu state */
+  const langBtn = document.getElementById('langBtn');
+  if (langBtn) {
+    const flagEl = document.getElementById('langBtnFlag');
+    const codeEl = document.getElementById('langBtnCode');
+    if (flagEl) flagEl.innerHTML = FLAGS[LANG] || '';
+    if (codeEl) codeEl.textContent = LANG.toUpperCase();
+    langBtn.setAttribute('aria-label', uiTxt('langLabel') + ' — ' + (LANG_NAMES[LANG] || LANG));
+  }
+  const menu = document.getElementById('langMenu');
+  if (menu) {
+    menu.querySelectorAll('.lang-opt').forEach(o => {
+      o.setAttribute('aria-selected', o.dataset.lang === LANG ? 'true' : 'false');
+    });
+  }
+  if (typeof buildNav === 'function') buildNav();
+  if (typeof buildMenu === 'function') buildMenu();
+  if (typeof initNav === 'function') initNav();
+  if (typeof initScrollReveal === 'function') initScrollReveal();
+}
+
+/* ── Custom language dropdown (native selects can't render flags on Windows) ── */
+function initLangSwitcher() {
+  const wrap = document.getElementById('langWrap');
+  const btn  = document.getElementById('langBtn');
+  const menu = document.getElementById('langMenu');
+  if (!wrap || !btn || !menu) return;
+
+  /* Build options */
+  menu.innerHTML = LANGS.map(l =>
+    `<button type="button" class="lang-opt" data-lang="${l}" role="option" aria-selected="${l === LANG ? 'true' : 'false'}">
+       <span class="lang-opt-flag">${FLAGS[l] || ''}</span>
+       <span class="lang-opt-name">${LANG_NAMES[l] || l}</span>
+     </button>`
+  ).join('');
+
+  const close = () => { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = wrap.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  menu.addEventListener('click', e => {
+    const opt = e.target.closest('.lang-opt');
+    if (!opt) return;
+    setLang(opt.dataset.lang);
+    close();
+  });
+
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowDown' && wrap.classList.contains('open')) {
+      const opts = [...menu.querySelectorAll('.lang-opt')];
+      const i = opts.findIndex(o => o.dataset.lang === LANG);
+      opts[(i + 1) % opts.length]?.focus();
+      e.preventDefault();
+    }
+    if (e.key === 'ArrowUp' && wrap.classList.contains('open')) {
+      const opts = [...menu.querySelectorAll('.lang-opt')];
+      const i = opts.findIndex(o => o.dataset.lang === LANG);
+      opts[(i - 1 + opts.length) % opts.length]?.focus();
+      e.preventDefault();
+    }
+  });
+  menu.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.classList.contains('lang-opt')) {
+      setLang(e.target.dataset.lang);
+      close();
+    }
+  });
+}

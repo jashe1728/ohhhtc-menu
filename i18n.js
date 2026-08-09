@@ -49,6 +49,7 @@ en: {
     entradas:          { nome: 'Starters',            subtitulo: 'To start with attitude' },
     carne:             { nome: 'Meat',                subtitulo: 'For those who resist the sea' },
     peixe:             { nome: 'Fish',                subtitulo: 'The authentic taste of the sea, served unhurried' },
+    'selecao-dia':     { nome: 'Daily Selection by the Kilo', subtitulo: 'Picked at the fish market, at the day\'s price' },
     'bebidas-alcoolicas': { nome: 'Alcoholic Drinks', subtitulo: 'From vineyard to sea, chosen with care' },
     'bebidas-sem-alcool': { nome: 'Non-Alcoholic',    subtitulo: 'Refreshment without compromise' },
     sobremesas:        { nome: 'Desserts',            subtitulo: 'Calm after the tide' }
@@ -128,7 +129,9 @@ en: {
     72: { desc: 'With freshly burnt sugar' },
     73: { desc: 'Biscuit cake with cream' },
     74: { desc: 'Your choice' },
-    75: { desc: 'Selection of fresh seasonal fruit' }
+    75: { desc: 'Selection of fresh seasonal fruit' },
+    76: { desc: 'We pick at the fish market, you choose here' },
+    77: { desc: 'Premium selection from our coast' }
   },
   tags: {
     'Para Começar': 'To Start', Entrada: 'Starter', Destaque: 'Featured', Clássico: 'Classic',
@@ -136,7 +139,8 @@ en: {
     Peixe: 'Fish', Especial: 'Special', Vinho: 'Wine', Sangria: 'Sangria', Cerveja: 'Beer',
     Cider: 'Cider', Licor: 'Liqueur', Whisky: 'Whisky', Porto: 'Port', Aperitivo: 'Aperitif',
     Água: 'Water', Refrigerante: 'Soft Drink', Natural: 'Fresh', Café: 'Coffee',
-    Sobremesa: 'Dessert', Pastelaria: 'Pastry', Gelado: 'Ice Cream', Fresco: 'Fresh'
+    Sobremesa: 'Dessert', Pastelaria: 'Pastry', Gelado: 'Ice Cream', Fresco: 'Fresh',
+    Premium: 'Premium'
   }
 },
 
@@ -154,6 +158,7 @@ fr: {
     entradas:          { nome: 'Entrées',              subtitulo: 'Pour commencer avec attitude' },
     carne:             { nome: 'Viandes',              subtitulo: 'Pour ceux qui résistent à la mer' },
     peixe:             { nome: 'Poissons',             subtitulo: 'Le goût authentique de la mer, servi sans hâte' },
+    'selecao-dia':     { nome: 'Sélection du jour au kilo', subtitulo: 'Choisi à la criée, au prix du jour' },
     'bebidas-alcoolicas': { nome: 'Boissons Alcoolisées', subtitulo: 'De la vigne à la mer, avec exigence' },
     'bebidas-sem-alcool': { nome: 'Sans Alcool',       subtitulo: 'Fraîcheur sans compromis' },
     sobremesas:        { nome: 'Desserts',             subtitulo: 'Le calme après la marée' }
@@ -233,7 +238,9 @@ fr: {
     72: { desc: 'Avec sucre caramélisé à la minute' },
     73: { desc: 'Gâteau de biscuits à la crème' },
     74: { desc: 'Au choix' },
-    75: { desc: 'Sélection de fruits frais de saison' }
+    75: { desc: 'Sélection de fruits frais de saison' },
+    76: { desc: 'Nous choisissons à la criée, vous choisissez ici' },
+    77: { desc: 'Sélection premium de notre côte' }
   },
   tags: {
     'Para Começar': 'Pour Commencer', Entrada: 'Entrée', Destaque: 'Signature', Clássico: 'Classique',
@@ -241,7 +248,8 @@ fr: {
     Peixe: 'Poisson', Especial: 'Spécial', Vinho: 'Vin', Sangria: 'Sangria', Cerveja: 'Bière',
     Cider: 'Cidre', Licor: 'Liqueur', Whisky: 'Whisky', Porto: 'Porto', Aperitivo: 'Apéritif',
     Água: 'Eau', Refrigerante: 'Soda', Natural: 'Frais', Café: 'Café',
-    Sobremesa: 'Dessert', Pastelaria: 'Pâtisserie', Gelado: 'Glace', Fresco: 'Frais'
+    Sobremesa: 'Dessert', Pastelaria: 'Pâtisserie', Gelado: 'Glace', Fresco: 'Frais',
+    Premium: 'Premium'
   }
 },
 /* ────────────────────────────── ESPAÑOL ── */
@@ -258,6 +266,7 @@ es: {
     entradas:          { nome: 'Entrantes',             subtitulo: 'Para empezar con actitud' },
     carne:             { nome: 'Carne',                 subtitulo: 'Para los que resisten al mar' },
     peixe:             { nome: 'Pescado',               subtitulo: 'El sabor auténtico del mar, servido sin prisas' },
+    'selecao-dia':     { nome: 'Selección del día al kilo', subtitulo: 'Elegido en la lonja, al precio del día' },
     'bebidas-alcoolicas': { nome: 'Bebidas Alcohólicas', subtitulo: 'De la viña al mar, con criterio' },
     'bebidas-sem-alcool': { nome: 'Sin Alcohol',        subtitulo: 'Frescura sin compromisos' },
     sobremesas:        { nome: 'Postres',               subtitulo: 'La calma después de la marea' }
@@ -337,7 +346,9 @@ es: {
     72: { desc: 'Con azúcar caramelizado en el momento' },
     73: { desc: 'Tarta de galleta con crema' },
     74: { desc: 'A elegir' },
-    75: { desc: 'Selección de fruta fresca de temporada' }
+    75: { desc: 'Selección de fruta fresca de temporada' },
+    76: { desc: 'Elegimos en la lonja, usted elige aquí' },
+    77: { desc: 'Selección premium de nuestra costa' }
   },
   tags: {
     'Para Começar': 'Para Empezar', Entrada: 'Entrante', Destaque: 'Destacado', Clássico: 'Clásico',
@@ -345,7 +356,8 @@ es: {
     Peixe: 'Pescado', Especial: 'Especial', Vinho: 'Vino', Sangria: 'Sangría', Cerveja: 'Cerveza',
     Cider: 'Sidra', Licor: 'Licor', Whisky: 'Whisky', Porto: 'Oporto', Aperitivo: 'Aperitivo',
     Água: 'Agua', Refrigerante: 'Refresco', Natural: 'Natural', Café: 'Café',
-    Sobremesa: 'Postre', Pastelaria: 'Repostería', Gelado: 'Helado', Fresco: 'Fresco'
+    Sobremesa: 'Postre', Pastelaria: 'Repostería', Gelado: 'Helado', Fresco: 'Fresco',
+    Premium: 'Premium'
   }
 },
 
@@ -363,6 +375,7 @@ it: {
     entradas:          { nome: 'Antipasti',             subtitulo: 'Per iniziare con stile' },
     carne:             { nome: 'Carne',                 subtitulo: 'Per chi resiste al mare' },
     peixe:             { nome: 'Pesce',                 subtitulo: 'Il sapore autentico del mare, servito senza fretta' },
+    'selecao-dia':     { nome: 'Selezione del giorno al chilo', subtitulo: 'Scelto in pescheria, al prezzo del giorno' },
     'bebidas-alcoolicas': { nome: 'Bevande Alcoliche',  subtitulo: 'Dalla vigna al mare, con criterio' },
     'bebidas-sem-alcool': { nome: 'Analcolici',         subtitulo: 'Freschezza senza compromessi' },
     sobremesas:        { nome: 'Dolci',                 subtitulo: 'La calma dopo la marea' }
@@ -442,7 +455,9 @@ it: {
     72: { desc: 'Con zucchero caramellato al momento' },
     73: { desc: 'Torta di biscotti con crema' },
     74: { desc: 'A scelta' },
-    75: { desc: 'Selezione di frutta fresca di stagione' }
+    75: { desc: 'Selezione di frutta fresca di stagione' },
+    76: { desc: 'Scegliamo noi in pescheria, voi scegliete qui' },
+    77: { desc: 'Selezione premium della nostra costa' }
   },
   tags: {
     'Para Começar': 'Per Iniziare', Entrada: 'Antipasto', Destaque: 'In Evidenza', Clássico: 'Classico',
@@ -450,7 +465,8 @@ it: {
     Peixe: 'Pesce', Especial: 'Speciale', Vinho: 'Vino', Sangria: 'Sangria', Cerveja: 'Birra',
     Cider: 'Sidro', Licor: 'Liquore', Whisky: 'Whisky', Porto: 'Porto', Aperitivo: 'Aperitivo',
     Água: 'Acqua', Refrigerante: 'Bibita', Natural: 'Naturale', Café: 'Caffè',
-    Sobremesa: 'Dolce', Pastelaria: 'Pasticceria', Gelado: 'Gelato', Fresco: 'Fresco'
+    Sobremesa: 'Dolce', Pastelaria: 'Pasticceria', Gelado: 'Gelato', Fresco: 'Fresco',
+    Premium: 'Premium'
   }
 },
 /* ────────────────────────────── DEUTSCH ── */
@@ -467,6 +483,7 @@ de: {
     entradas:          { nome: 'Vorspeisen',           subtitulo: 'Mit Attitüde beginnen' },
     carne:             { nome: 'Fleisch',              subtitulo: 'Für alle, die dem Meer widerstehen' },
     peixe:             { nome: 'Fisch',                subtitulo: 'Der authentische Geschmack des Meeres, ohne Eile serviert' },
+    'selecao-dia':     { nome: 'Tagesauswahl pro Kilo', subtitulo: 'Am Fischmarkt ausgewählt, zum Tagespreis' },
     'bebidas-alcoolicas': { nome: 'Alkoholische Getränke', subtitulo: 'Vom Weinberg zum Meer, mit Bedacht gewählt' },
     'bebidas-sem-alcool': { nome: 'Alkoholfrei',       subtitulo: 'Erfrischung ohne Kompromisse' },
     sobremesas:        { nome: 'Nachspeisen',          subtitulo: 'Die Ruhe nach der Flut' }
@@ -546,7 +563,9 @@ de: {
     72: { desc: 'Mit frisch karamellisiertem Zucker' },
     73: { desc: 'Kekstorte mit Creme' },
     74: { desc: 'Nach Wahl' },
-    75: { desc: 'Auswahl an frischem Saisonobst' }
+    75: { desc: 'Auswahl an frischem Saisonobst' },
+    76: { desc: 'Wir wählen am Fischmarkt, Sie wählen hier' },
+    77: { desc: 'Premium-Auswahl von unserer Küste' }
   },
   tags: {
     'Para Começar': 'Zum Start', Entrada: 'Vorspeise', Destaque: 'Empfohlen', Clássico: 'Klassiker',
@@ -554,7 +573,8 @@ de: {
     Peixe: 'Fisch', Especial: 'Spezialität', Vinho: 'Wein', Sangria: 'Sangria', Cerveja: 'Bier',
     Cider: 'Cider', Licor: 'Likör', Whisky: 'Whisky', Porto: 'Portwein', Aperitivo: 'Aperitif',
     Água: 'Wasser', Refrigerante: 'Erfrischung', Natural: 'Natur', Café: 'Kaffee',
-    Sobremesa: 'Dessert', Pastelaria: 'Feingebäck', Gelado: 'Eis', Fresco: 'Frisch'
+    Sobremesa: 'Dessert', Pastelaria: 'Feingebäck', Gelado: 'Eis', Fresco: 'Frisch',
+    Premium: 'Premium'
   }
 },
 
@@ -572,6 +592,7 @@ zh: {
     entradas:          { nome: '前菜',                 subtitulo: '以态度开场' },
     carne:             { nome: '肉类',                 subtitulo: '献给抵挡海洋诱惑的人' },
     peixe:             { nome: '海鲜',                 subtitulo: '海洋的纯正风味，从容奉上' },
+    'selecao-dia':     { nome: '当日按公斤精选',       subtitulo: '鱼市精选，按当日价格' },
     'bebidas-alcoolicas': { nome: '酒精饮品',          subtitulo: '从葡萄园到海洋，精挑细选' },
     'bebidas-sem-alcool': { nome: '无酒精饮品',        subtitulo: '畅快清爽，毫不妥协' },
     sobremesas:        { nome: '甜品',                 subtitulo: '潮水退去后的宁静' }
@@ -651,7 +672,9 @@ zh: {
     72: { desc: '现烤焦糖糖霜' },
     73: { desc: '奶油饼干蛋糕' },
     74: { desc: '任君选择' },
-    75: { desc: '精选当季新鲜水果' }
+    75: { desc: '精选当季新鲜水果' },
+    76: { desc: '我们自鱼市精选，您在这里选择' },
+    77: { desc: '来自我们海岸的精选' }
   },
   tags: {
     'Para Começar': '开胃', Entrada: '前菜', Destaque: '招牌', Clássico: '经典',
@@ -659,7 +682,8 @@ zh: {
     Peixe: '海鲜', Especial: '特色', Vinho: '葡萄酒', Sangria: '桑格利亚', Cerveja: '啤酒',
     Cider: '西打', Licor: '利口酒', Whisky: '威士忌', Porto: '波特酒', Aperitivo: '开胃酒',
     Água: '水', Refrigerante: '汽水', Natural: '鲜榨', Café: '咖啡',
-    Sobremesa: '甜品', Pastelaria: '糕点', Gelado: '冰淇淋', Fresco: '新鲜'
+    Sobremesa: '甜品', Pastelaria: '糕点', Gelado: '冰淇淋', Fresco: '新鲜',
+    Premium: '精选'
   }
 },
 /* ────────────────────────────── УКРАЇНСЬКА ── */
@@ -676,6 +700,7 @@ uk: {
     entradas:          { nome: 'Закуски',            subtitulo: 'Почати з характером' },
     carne:             { nome: 'М\'ясо',             subtitulo: 'Для тих, хто противиться морю' },
     peixe:             { nome: 'Риба',               subtitulo: 'Справжній смак моря, поданий неспішно' },
+    'selecao-dia':     { nome: 'Денний вибір на кілограм', subtitulo: 'Обрано на рибному ринку, за ціною дня' },
     'bebidas-alcoolicas': { nome: 'Алкогольні напої', subtitulo: 'Від виноградника до моря, з турботою' },
     'bebidas-sem-alcool': { nome: 'Безалкогольні',    subtitulo: 'Освіження без компромісів' },
     sobremesas:        { nome: 'Десерти',            subtitulo: 'Спокій після припливу' }
@@ -755,7 +780,9 @@ uk: {
     72: { desc: 'Зі свіжепідпаленим цукром' },
     73: { desc: 'Бісквітний торт з кремом' },
     74: { desc: 'На ваш вибір' },
-    75: { desc: 'Добірка свіжих сезонних фруктів' }
+    75: { desc: 'Добірка свіжих сезонних фруктів' },
+    76: { desc: 'Ми обираємо на рибному ринку, а ви — тут' },
+    77: { desc: 'Преміальний вибір з нашого узбережжя' }
   },
   tags: {
     'Para Começar': 'На початок', Entrada: 'Закуска', Destaque: 'Хіт', Clássico: 'Класика',
@@ -763,7 +790,8 @@ uk: {
     Peixe: 'Риба', Especial: 'Особливе', Vinho: 'Вино', Sangria: 'Сангрія', Cerveja: 'Пиво',
     Cider: 'Сидр', Licor: 'Лікер', Whisky: 'Віскі', Porto: 'Портвейн', Aperitivo: 'Аперитив',
     Água: 'Вода', Refrigerante: 'Газований напій', Natural: 'Свіжий', Café: 'Кава',
-    Sobremesa: 'Десерт', Pastelaria: 'Випічка', Gelado: 'Морозиво', Fresco: 'Свіжий'
+    Sobremesa: 'Десерт', Pastelaria: 'Випічка', Gelado: 'Морозиво', Fresco: 'Свіжий',
+    Premium: 'Преміум'
   }
 }
 };

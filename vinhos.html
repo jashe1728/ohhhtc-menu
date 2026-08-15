@@ -292,7 +292,7 @@
   /* ── GRID ─────────────────────────────────────────── */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
@@ -317,7 +317,7 @@
   }
   .card:not(:hover) { will-change: auto; }
   .card-img-wrap {
-    position: relative; height: 180px; overflow: hidden;
+    position: relative; height: 300px; overflow: hidden;
     background: var(--sand);
   }
   .card-img-wrap img {
@@ -329,6 +329,10 @@
     object-position: center center;
     padding: 8px;
     background: var(--sand);
+  }
+  .card-img-wrap img.img-cover {
+    object-fit: cover;
+    object-position: center center;
   }
   .card:hover .card-img-wrap img { transform: scale(1.05); }
   .card-img-placeholder {
@@ -460,6 +464,10 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
+  @media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 640px) {
     .cards-pair { gap: 10px; }
     .cards-pair .card-img-wrap { height: 120px; }
@@ -635,14 +643,14 @@ const MENU_DATA = [
     icone: "🍷",
     items: [
       { id:78, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wines/amnesia-white.svg", imgClass:"img-contain" },
-      { id:79, nome:"Bulas", preco:17.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wineimg_final/bulas-branco.png", imgClass:"img-contain" },
+      { id:79, nome:"Bulas", preco:17.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wineimg_final/bulas-branco.png", imgClass:"img-cover" },
       { id:80, nome:"Caladesa", preco:16.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wines/caladesa.svg", imgClass:"img-contain" },
-      { id:81, nome:"D'Wine Sauvignon Blanc", preco:16.00, descricao:"Famalicão", tag:"Vinho", imagemUrl:"wineimg_final/dwine-sauvignon.png", imgClass:"img-contain" },
-      { id:82, nome:"D'Wine Chardonnay", preco:16.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wineimg_final/dwine-chardonnay.png", imgClass:"img-contain" },
+      { id:81, nome:"D'Wine Sauvignon Blanc", preco:16.00, descricao:"Famalicão", tag:"Vinho", imagemUrl:"wineimg_final/dwine-sauvignon.png", imgClass:"img-cover" },
+      { id:82, nome:"D'Wine Chardonnay", preco:16.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wineimg_final/dwine-chardonnay.png", imgClass:"img-cover" },
       { id:83, nome:"Lacrau Moscatel Galego", preco:19.00, descricao:"Douro", tag:"Vinho", imagemUrl:"wines/lacrau-moscatel.svg", imgClass:"img-contain" },
       { id:84, nome:"Chocopalha Chardonnay", preco:18.00, descricao:"Lisboa", tag:"Vinho", imagemUrl:"wines/chocopalha-chardonnay.svg", imgClass:"img-contain" },
-      { id:85, nome:"Dona Maria", preco:20.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/dona-maria-branco.png", imgClass:"img-contain" },
-      { id:86, nome:"Nã Te Rales", preco:17.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/na-te-rales-branco.png", imgClass:"img-contain" },
+      { id:85, nome:"Dona Maria", preco:20.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/dona-maria-branco.png", imgClass:"img-cover" },
+      { id:86, nome:"Nã Te Rales", preco:17.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/na-te-rales-branco.png", imgClass:"img-cover" },
       { id:87, nome:"Manoella", preco:23.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wines/manoella-white.svg", imgClass:"img-contain" },
       { id:88, nome:"Quinta de Saes Encruzado", preco:23.00, descricao:"Vinho branco", tag:"Vinho", imagemUrl:"wines/quinta-saes-encruzado.svg", imgClass:"img-contain" },
     ]
@@ -653,11 +661,11 @@ const MENU_DATA = [
     icone: "🍷",
     items: [
       { id:89, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wines/amnesia-red.svg", imgClass:"img-contain" },
-      { id:90, nome:"Bulas", preco:17.00, descricao:"Vinho tinto", tag:"Vinho", imagemUrl:"wineimg_final/bulas-tinto.png", imgClass:"img-contain" },
+      { id:90, nome:"Bulas", preco:17.00, descricao:"Vinho tinto", tag:"Vinho", imagemUrl:"wineimg_final/bulas-tinto.png", imgClass:"img-cover" },
       { id:91, nome:"Vinha Paz", preco:20.00, descricao:"Dão", tag:"Vinho", imagemUrl:"wines/vinha-paz.svg", imgClass:"img-contain" },
-      { id:92, nome:"Alento", preco:18.00, descricao:"Vinho tinto", tag:"Vinho", imagemUrl:"wineimg_final/alento-tinto.png", imgClass:"img-contain" },
-      { id:93, nome:"Nã Te Rales", preco:16.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/na-te-rales-tinto.png", imgClass:"img-contain" },
-      { id:94, nome:"Dona Maria", preco:25.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/dona-maria-tinto.png", imgClass:"img-contain" },
+      { id:92, nome:"Alento", preco:18.00, descricao:"Vinho tinto", tag:"Vinho", imagemUrl:"wineimg_final/alento-tinto.png", imgClass:"img-cover" },
+      { id:93, nome:"Nã Te Rales", preco:16.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/na-te-rales-tinto.png", imgClass:"img-cover" },
+      { id:94, nome:"Dona Maria", preco:25.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wineimg_final/dona-maria-tinto.png", imgClass:"img-cover" },
       { id:95, nome:"Dona Maria Grande Reserva", preco:60.00, descricao:"Alentejo", tag:"Vinho", imagemUrl:"wines/dona-maria-gr.svg", imgClass:"img-contain" },
       { id:96, nome:"Passagem", preco:28.00, descricao:"Douro", tag:"Vinho", imagemUrl:"wines/passagem.svg", imgClass:"img-contain" },
       { id:97, nome:"Manoella", preco:28.00, descricao:"Douro", tag:"Vinho", imagemUrl:"wines/manoella-red.svg", imgClass:"img-contain" },
@@ -674,7 +682,7 @@ const MENU_DATA = [
       { id:101, nome:"D'Wine Rosé", preco:16.00, descricao:"Vinho rosé", tag:"Vinho", imagemUrl:"wines/dwine-rose.svg", imgClass:"img-contain" },
       { id:102, nome:"Quinta de Saes", preco:16.00, descricao:"Dão", tag:"Vinho", imagemUrl:"wines/quinta-saes-rose.svg", imgClass:"img-contain" },
       { id:103, nome:"Lacrau", preco:17.00, descricao:"Vinho rosé", tag:"Vinho", imagemUrl:"wines/lacrau-rose.svg", imgClass:"img-contain" },
-      { id:104, nome:"Dona Maria Rosé", preco:20.00, descricao:"Vinho rosé", tag:"Vinho", imagemUrl:"wineimg_final/dona-maria-rose.png", imgClass:"img-contain" },
+      { id:104, nome:"Dona Maria Rosé", preco:20.00, descricao:"Vinho rosé", tag:"Vinho", imagemUrl:"wineimg_final/dona-maria-rose.png", imgClass:"img-cover" },
       { id:105, nome:"Minuty", preco:26.00, descricao:"França", tag:"Vinho", imagemUrl:"wines/minuty.svg", imgClass:"img-contain" },
     ]
   },

@@ -625,6 +625,17 @@ const UI_TXT = {
 
 const FLAG_EMOJI = {"pt": "🇵🇹", "en": "🇬🇧", "fr": "🇫🇷", "es": "🇪🇸", "it": "🇮🇹", "de": "🇩🇪", "zh": "🇨🇳", "uk": "🇺🇦"};
 
+const HERO_TXT = {
+  "pt": "Vinhos brancos, tintos e rosés — escolhidos com critério",
+  "en": "White, red and rosé wines — chosen with care",
+  "fr": "Vins blancs, rouges et rosés — choisis avec soin",
+  "es": "Vinos blancos, tintos y rosados — elegidos con criterio",
+  "it": "Vini bianchi, rossi e rosati — scelti con cura",
+  "de": "Weiß-, Rot- und Roséweine — mit Bedacht gewählt",
+  "zh": "白、红和桃红葡萄酒——精心挑选",
+  "uk": "Білі, червоні та рожеві вина — підібрані з турботою"
+};
+
 const LANG_NM = {"pt": "Português", "en": "English", "fr": "Français", "es": "Español", "it": "Italiano", "de": "Deutsch", "zh": "中文", "uk": "Українська"};
 
 
@@ -668,7 +679,7 @@ function sectionHTML(s, i) {
 function applyLang() {
   const m = document.getElementById('menuMain');
   if (m) m.innerHTML = WINE_DATA.map(sectionHTML).join('');
-  const hs = document.getElementById('heroSub'); if (hs) hs.textContent = uiTxt('hero') || 'Vinhos brancos, tintos e rosés — escolhidos com critério';
+  const hs = document.getElementById('heroSub'); if (hs) hs.textContent = HERO_TXT[LANG] || HERO_TXT['pt'];
   const vn = document.getElementById('vatNote'); if (vn) vn.textContent = uiTxt('vat');
   const fm = document.getElementById('footerMsg'); if (fm) fm.textContent = uiTxt('footer');
   const bt = document.getElementById('backToMenuTxt'); if (bt) bt.textContent = uiTxt('backMenu');

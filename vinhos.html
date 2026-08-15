@@ -317,7 +317,7 @@
   }
   .card:not(:hover) { will-change: auto; }
   .card-img-wrap {
-    position: relative; height: 300px; overflow: hidden;
+    position: relative; aspect-ratio: 4 / 5; overflow: hidden;
     background: var(--sand);
   }
   .card-img-wrap img {
@@ -327,7 +327,7 @@
   .card-img-wrap img.img-contain {
     object-fit: contain;
     object-position: center center;
-    padding: 8px;
+    padding: 6px;
     background: var(--sand);
   }
   .card-img-wrap img.img-cover {
@@ -505,7 +505,7 @@
 
     /* Cards — single column, bigger touch targets */
     .cards-grid { grid-template-columns: 1fr; gap: 12px; }
-    .card-img-wrap { height: 200px; }
+    .card-img-wrap { aspect-ratio: 4 / 5; height: auto; }
     .card-img-placeholder { height: 200px; font-size: 2.8rem; }
     .card-body { padding: 14px 14px 16px; }
     .card-name { font-size: .95rem; }

@@ -31,6 +31,7 @@ const UI_PT = {
   backToTop:   'Voltar ao topo',
   langLabel:   'Idioma',
   backToMenu:  'Voltar à ementa',
+  winesNav:     'Vinhos',
   footerMsg:   'Feito com carinho, servido com orgulho. Obrigado por nos escolher.'
 };
 
@@ -45,6 +46,7 @@ en: {
     backToTop: 'Back to top',
     langLabel: 'Language',
     backToMenu: 'Back to menu',
+    winesNav:     'Wines',
     footerMsg: 'Made with care, served with pride. Thank you for choosing us.'
   },
   sections: {
@@ -186,6 +188,7 @@ fr: {
     backToTop: 'Retour en haut',
     langLabel: 'Langue',
     backToMenu: 'Retour au menu',
+    winesNav:     'Vins',
     footerMsg: 'Fait avec soin, servi avec fierté. Merci de nous avoir choisis.'
   },
   sections: {
@@ -326,6 +329,7 @@ es: {
     backToTop: 'Volver arriba',
     langLabel: 'Idioma',
     backToMenu: 'Volver al menú',
+    winesNav:     'Vinos',
     footerMsg: 'Hecho con cariño, servido con orgullo. Gracias por elegirnos.'
   },
   sections: {
@@ -467,6 +471,7 @@ it: {
     backToTop: 'Torna su',
     langLabel: 'Lingua',
     backToMenu: 'Torna al menu',
+    winesNav:     'Vini',
     footerMsg: 'Fatto con cura, servito con orgoglio. Grazie per averci scelto.'
   },
   sections: {
@@ -607,6 +612,7 @@ de: {
     backToTop: 'Nach oben',
     langLabel: 'Sprache',
     backToMenu: 'Zurück zum Menü',
+    winesNav:     'Weine',
     footerMsg: 'Mit Sorgfalt zubereitet, mit Stolz serviert. Danke, dass Sie uns gewählt haben.'
   },
   sections: {
@@ -748,6 +754,7 @@ zh: {
     backToTop: '返回顶部',
     langLabel: '语言',
     backToMenu: '返回菜单',
+    winesNav:     '葡萄酒',
     footerMsg: '用心烹制，自豪呈献。感谢您的选择。'
   },
   sections: {
@@ -888,6 +895,7 @@ uk: {
     backToTop: 'Вгору',
     langLabel: 'Мова',
     backToMenu: 'Повернутися до меню',
+    winesNav:     'Вина',
     footerMsg: 'Приготовано з турботою, подано з гордістю. Дякуємо, що обрали нас.'
   },
   sections: {
@@ -1056,6 +1064,7 @@ function applyLangUI() {
   set('heroSub', uiTxt('heroSub'));
   set('vatNote', uiTxt('vatNote'));
   set('backToMenu', uiTxt('backToMenu'));
+  set('winesNav', uiTxt('winesNav'));
   set('footerMsg', uiTxt('footerMsg'));
   const btn = document.getElementById('scrollTopBtn');
   if (btn) btn.setAttribute('aria-label', uiTxt('backToTop'));

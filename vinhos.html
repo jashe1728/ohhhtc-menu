@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinhos · OhhhTC!!!</title>
+<style>
+
+  :root {
+    --navy:     #1B2B4B;
+    --mid:      #2D5086;
+    --gold:     #89C4E1;
+    --gold-lt:  #ACD8F0;
+    --sand:     #F5EDD6;
+    --pearl:    #FDFAF4;
+    --ink:      #1a1a1a;
+    --muted:    #6B7280;
+    --card-bg:  #ffffff;
+    --radius:   14px;
+    --shadow:   0 2px 16px rgba(27,43,75,.08);
+    --shadow-h: 0 10px 36px rgba(27,43,75,.16);
+    --nav-h:    62px;
+    --ease:     cubic-bezier(.4,0,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: auto; }
+  body {
+    background: var(--pearl);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: contain;
+  }
+  img { display: block; width: 100%; object-fit: cover; }
+
+  /* ── HERO ─────────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    color: var(--pearl);
+    text-align: center;
+    padding: 72px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% 110%, rgba(137,196,225,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-logo {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 28px;
+    box-shadow: 0 0 0 3px rgba(137,196,225,.5), 0 8px 32px rgba(0,0,0,.35);
+    opacity: 0;
+    transform: scale(.85);
+    animation: logoIn .7s var(--ease) .1s forwards;
+  }
+  @keyframes logoIn {
+    to { opacity: 1; transform: scale(1); }
+  }
+  .hero-eyebrow {
+    font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold-lt); font-weight: 600; margin-bottom: 10px;
+    opacity: 0; animation: fadeUp .5s var(--ease) .4s forwards;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 700; line-height: 1.05;
+    margin-bottom: 10px;
+    opacity: 0; animation: fadeUp .5s var(--ease) .5s forwards;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-lt); }
+  .hero-sub {
+    font-size: .88rem; color: #ffffff;
+    max-width: 340px; margin: 0 auto;
+    opacity: 0; animation: fadeUp .5s var(--ease) .6s forwards;
+  }
+  .hero-meta {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    font-size: .75rem; color: rgba(253,250,244,.8);
+    border-top: 1px solid rgba(253,250,244,.15);
+    padding-top: 18px; margin-top: 28px;
+    opacity: 0; animation: fadeUp .5s var(--ease) .7s forwards;
+  }
+  .hero-wave {
+    position: absolute; bottom: -1px; left: 0; right: 0; height: 44px;
+  }
+  .hero-wave svg { width: 100%; height: 100%; }
+
+  /* ── STICKY NAV ───────────────────────────────────── */
+  .nav-wrapper {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    box-shadow: 0 1px 0 rgba(255,255,255,.05), 0 4px 20px rgba(27,43,75,.3);
+    display: flex; align-items: center;
+  }
+  .lang-wrap {
+    position: relative;
+    flex-shrink: 0;
+    display: flex; align-items: center;
+    padding: 0 12px 0 6px;
+  }
+  .lang-btn {
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(253,250,244,.12);
+    border: 1px solid rgba(253,250,244,.35);
+    border-radius: 20px;
+    color: #FDFAF4;
+    font-family: Inter, sans-serif;
+    font-size: .74rem; font-weight: 600;
+    padding: 5px 12px 5px 8px;
+    cursor: pointer;
+    transition: background .2s var(--ease), border-color .2s var(--ease);
+  }
+  .lang-btn:hover { background: rgba(253,250,244,.22); border-color: rgba(253,250,244,.55); }
+  .lang-btn[aria-expanded="true"] { background: rgba(253,250,244,.22); }
+  .lang-btn-flag { width: 22px; height: 15px; border-radius: 3px; overflow: hidden; flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.18); display: inline-flex; }
+  .lang-btn-flag svg { width: 100%; height: 100%; display: block; }
+  .lang-btn-code { letter-spacing: .04em; }
+  .lang-btn-caret { width: 8px; height: 8px; margin-left: 1px; opacity: .8;
+    transition: transform .2s var(--ease); }
+  .lang-wrap.open .lang-btn-caret { transform: rotate(180deg); }
+  .lang-menu {
+    position: absolute; top: calc(100% + 8px); right: 8px;
+    min-width: 168px;
+    background: #fff; border-radius: 14px;
+    box-shadow: 0 10px 36px rgba(27,43,75,.22);
+    padding: 6px; margin: 0; list-style: none;
+    display: none; z-index: 300;
+  }
+  .lang-wrap.open .lang-menu { display: block; }
+  .lang-opt {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%;
+    background: none; border: none; border-radius: 9px;
+    color: var(--ink); font-family: Inter, sans-serif;
+    font-size: .8rem; font-weight: 500;
+    padding: 8px 10px; cursor: pointer; text-align: left;
+    transition: background .15s ease;
+  }
+  .lang-opt:hover { background: var(--sand); }
+  .lang-opt[aria-selected="true"] { background: var(--sand); font-weight: 700; }
+  .lang-opt-flag { width: 22px; height: 15px; border-radius: 3px; overflow: hidden; flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.12); display: inline-flex; }
+  .lang-opt-flag svg { width: 100%; height: 100%; display: block; }
+  .lang-opt-name { flex: 1; }
+  .lang-opt[aria-selected="true"]::after {
+    content: "✓"; font-weight: 700; color: var(--mid);
+  }
+  .nav-scroll {
+    display: flex;
+    overflow-x: auto; padding: 0 12px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+  }
+  .nav-scroll::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    flex-shrink: 0;
+    background: none; border: none;
+    color: rgba(253,250,244,.45);
+    font-family: 'Inter', sans-serif;
+    font-size: .76rem; font-weight: 500;
+    letter-spacing: .05em;
+    padding: 0 16px;
+    height: var(--nav-h);
+    min-width: 44px;
+    cursor: pointer;
+    position: relative;
+    transition: color .25s var(--ease);
+    white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .nav-btn::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; right: 50%;
+    height: 2px; border-radius: 2px 2px 0 0;
+    background: var(--gold);
+    transition: left .3s var(--ease), right .3s var(--ease), opacity .3s;
+    opacity: 0;
+  }
+  .nav-btn.active { color: var(--pearl); }
+  .nav-btn.active::after { left: 10px; right: 10px; opacity: 1; }
+  .nav-btn:hover:not(.active) { color: rgba(253,250,244,.8); }
+
+  /* ── MAIN ─────────────────────────────────────────── */
+  main { max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── SECTION ──────────────────────────────────────── */
+  .menu-section { padding-top: 60px; scroll-margin-top: calc(var(--nav-h) + 10px); }
+  .section-header {
+    display: flex; align-items: center;
+    gap: 16px; margin-bottom: 32px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(27,43,75,.08);
+  }
+  .section-pill {
+    background: var(--mid);
+    color: var(--pearl);
+    font-size: .65rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    font-weight: 700; color: var(--navy);
+  }
+  .section-icon {
+    width: 46px; height: auto;
+    flex-shrink: 0; display: block;
+  }
+  .section-sub {
+    font-size: .75rem; color: var(--muted);
+    font-style: italic; margin-top: 2px;
+  }
+  .section-count {
+    margin-left: auto; flex-shrink: 0;
+    font-size: .68rem; letter-spacing: .1em;
+    color: var(--navy); font-weight: 600;
+    text-transform: uppercase;
+  }
+  .back-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 4px 0 16px;
+    padding: 7px 16px;
+    background: var(--navy);
+    color: var(--pearl);
+    border: none;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: .82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, transform .15s ease;
+  }
+  .back-menu-btn:hover { background: var(--mid); transform: translateY(-1px); }
+  .back-menu-btn svg { width: 14px; height: 14px; }
+
+  /* ── GRID ─────────────────────────────────────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+  }
+
+  /* ── CARD ─────────────────────────────────────────── */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    cursor: default;
+    touch-action: manipulation;
+    transition:
+      transform .3s var(--ease),
+      box-shadow .3s var(--ease);
+    position: relative;
+    border: 1px solid rgba(27,43,75,.05);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-h);
+    will-change: transform;
+  }
+  .card:not(:hover) { will-change: auto; }
+  .card-img-wrap {
+    position: relative; height: 180px; overflow: hidden;
+    background: var(--sand);
+  }
+  .card-img-wrap img {
+    height: 100%; width: 100%; object-fit: cover;
+    transition: transform .55s var(--ease);
+  }
+  .card-img-wrap img.img-contain {
+    object-fit: contain;
+    object-position: center center;
+    padding: 8px;
+    background: var(--sand);
+  }
+  .card:hover .card-img-wrap img { transform: scale(1.05); }
+  .card-img-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, var(--sand) 0%, #ede4cc 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.6rem;
+  }
+  .card-body { padding: 18px 18px 20px; }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-size: .78rem; color: var(--muted);
+    line-height: 1.55;
+  }
+  .card-footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-top: 14px; padding-top: 12px;
+    border-top: 1px solid rgba(27,43,75,.06);
+  }
+  .card-price {
+    font-size: 1rem; font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -.01em;
+  }
+  .card-tag {
+    font-size: .64rem; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--muted);
+    background: var(--sand);
+    padding: 3px 8px; border-radius: 6px;
+    font-weight: 500;
+  }
+
+  /* gold accent line on hover */
+  .card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 100%;
+    height: 2px; background: var(--gold);
+    transition: right .35s var(--ease);
+  }
+  .card:hover::before { right: 0; }
+
+  /* ── DIVIDER ──────────────────────────────────────── */
+  .section-divider {
+    display: flex; justify-content: center;
+    margin-top: 64px;
+  }
+  .divider-waves {
+    width: min(520px, 88%);
+    height: auto; display: block;
+  }
+
+  /* ── FOOTER ───────────────────────────────────────── */
+  footer {
+    background: var(--navy); color: rgba(253,250,244,.5);
+    text-align: center; padding: 48px 24px;
+    font-size: .8rem; line-height: 2.2;
+  }
+  .footer-logo {
+    width: 64px; height: 64px;
+    border-radius: 50%; object-fit: cover;
+    margin: 0 auto 20px;
+    opacity: .85;
+    border: 2px solid rgba(137,196,225,.35);
+  }
+  footer strong { color: var(--pearl); font-size: .9rem; }
+  footer a { color: var(--gold-lt); text-decoration: none; }
+  footer a:hover { color: var(--pearl); }
+  .footer-msg {
+    margin: 16px auto 0; max-width: 560px;
+    font-style: italic; font-size: .85rem;
+    line-height: 1.7; color: var(--gold-lt);
+    opacity: .95;
+  }
+
+  /* ── PAGE CORNER DECORATIONS (hand-drawn line art) ── */
+  .page-deco {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    max-width: 1200px; margin: 0 auto;
+    padding: 8px 22px 0;
+  }
+  .deco-beans { width: 112px; height: auto; display: block; }
+  .deco-fish  { width: 120px; height: auto; display: block; }
+
+  /* ── SCROLL TOP ───────────────────────────────────── */
+  .scroll-top {
+    position: fixed; bottom: 22px; right: 18px; z-index: 200;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--navy); color: var(--pearl);
+    border: 1px solid rgba(255,255,255,.1);
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(27,43,75,.28);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity .3s, transform .3s, background .2s;
+  }
+  .scroll-top.visible { opacity: 1; transform: none; }
+  .scroll-top:hover { background: var(--mid); }
+
+  /* ── ANIMATIONS ───────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Scroll-triggered reveal */
+  .card {
+    opacity: 0; transform: translateY(16px);
+    transition:
+      opacity .4s var(--ease),
+      transform .4s var(--ease),
+      box-shadow .3s var(--ease);
+  }
+  .card.visible {
+    opacity: 1; transform: translateY(0);
+  }
+  .card:hover { transform: translateY(-4px); }
+
+  /* ── RESPONSIVE ───────────────────────────────────── */
+  /* ── PAIRED CARDS (side by side) ── */
+  .cards-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .cards-pair { gap: 10px; }
+    .cards-pair .card-img-wrap { height: 120px; }
+    .cards-pair .card-img-placeholder { height: 120px; font-size: 1.8rem; }
+    .cards-pair .card-body { padding: 10px 10px 12px; }
+    .cards-pair .card-name { font-size: .82rem; }
+    .cards-pair .card-desc { font-size: .7rem; }
+    .cards-pair .card-price { font-size: .82rem; }
+    .cards-pair .card-tag { font-size: .58rem; padding: 2px 5px; }
+  }
+
+  /* ── MOBILE ─────────────────────────────────────── */
+  @media (max-width: 640px) {
+    /* Hero */
+    .hero { padding: 48px 18px 56px; }
+    .hero-logo { width: 80px; height: 80px; margin-bottom: 20px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: .82rem; }
+    .hero-meta { gap: 16px; font-size: .72rem; flex-direction: column; gap: 6px; }
+
+    /* Nav */
+    :root { --nav-h: 52px; }
+    .nav-btn { font-size: .72rem; padding: 0 12px; height: 52px; }
+
+    /* Main */
+    main { padding: 0 12px 80px; }
+
+    /* Section header */
+    .menu-section { padding-top: 44px; }
+    .section-header { gap: 10px; margin-bottom: 20px; padding-bottom: 14px; }
+    .section-pill { font-size: .6rem; padding: 4px 10px; }
+    .section-header h2 { font-size: 1.25rem; }
+    .section-sub { font-size: .7rem; }
+    .section-count { display: none; }
+
+    /* Cards — single column, bigger touch targets */
+    .cards-grid { grid-template-columns: 1fr; gap: 12px; }
+    .card-img-wrap { height: 200px; }
+    .card-img-placeholder { height: 200px; font-size: 2.8rem; }
+    .card-body { padding: 14px 14px 16px; }
+    .card-name { font-size: .95rem; }
+    .card-desc { font-size: .76rem; }
+    .card-footer { margin-top: 12px; padding-top: 10px; }
+    .card-price { font-size: .95rem; }
+    .card-tag { font-size: .6rem; padding: 2px 7px; }
+
+    /* Scroll top button — bigger for thumb */
+    .scroll-top { width: 48px; height: 48px; bottom: 18px; right: 14px; font-size: 1.1rem; }
+
+    /* Footer */
+    footer { padding: 36px 18px; font-size: .78rem; }
+    .footer-logo { width: 52px; height: 52px; }
+
+    /* Divider */
+    .section-divider { margin-top: 44px; }
+
+    /* Safe area for notch/home indicator */
+    .nav-wrapper { padding-bottom: env(safe-area-inset-bottom, 0); }
+    footer { padding-bottom: calc(36px + env(safe-area-inset-bottom, 0)); }
+    .scroll-top { bottom: calc(18px + env(safe-area-inset-bottom, 0)); }
+    .deco-beans { width: 84px; }
+    .deco-fish { width: 92px; }
+
+    /* Larger card tap area */
+    .card-footer { padding-top: 12px; margin-top: 14px; }
+    .card-price { padding: 6px 12px; border-radius: 8px; background: var(--sand); }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .card:hover { transform: none; box-shadow: var(--shadow); }
+    .card:hover .card-img-wrap img { transform: none; }
+    .card::before { display: none; }
+    .card:active { transform: scale(.98); transition: transform .1s; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .hero-logo, .hero-eyebrow, .hero h1, .hero-sub, .hero-meta {
+      animation: none; opacity: 1; transform: none;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-eyebrow">Costa da Caparica · Almada</p>
+  <h1>OhhhTC<em>!!!</em> <span style="font-size:.6em;color:var(--gold);">· Vinhos</span></h1>
+  <p class="hero-sub" id="heroSub">Vinhos brancos, tintos e rosés — escolhidos com critério</p>
+  <div class="hero-meta">
+    <span id="vatNote">Todos os preços incluem IVA</span>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1200 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C150,44 350,0 600,22 C850,44 1050,0 1200,22 L1200,44 L0,44 Z" fill="#FDFAF4"/>
+    </svg>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="nav-wrapper">
+  <div class="nav-scroll" id="navScroll"></div>
+  <div class="lang-wrap" id="langWrap">
+    <button type="button" class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma / Language">
+      <span class="lang-btn-flag" id="langBtnFlag"></span>
+      <span class="lang-btn-code" id="langBtnCode">PT</span>
+      <svg class="lang-btn-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    </button>
+    <div class="lang-menu" id="langMenu" role="listbox" aria-label="Idioma / Language"></div>
+  </div>
+</nav>
+
+<!-- MENU CONTENT -->
+<main id="menuMain"></main>
+
+<!-- BACK TO MENU -->
+<div style="text-align:center;padding:40px 16px 60px;">
+  <a class="back-menu-btn" href="index.html" style="text-decoration:none;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    <span id="backToMenuTxt">Voltar à ementa</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-msg" id="footerMsg">Feito com carinho, servido com orgulho. Obrigado por nos escolher.</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+const WINE_DATA = [
+  { id: "vinhos-brancos",
+    items: [
+      { id:78, nome:"Amnesia", descricao:"Alentejo", preco:15.00 },
+      { id:79, nome:"Bulas", descricao:"Vinho branco", preco:17.00 },
+      { id:80, nome:"Caladesa", descricao:"Vinho branco", preco:16.00 },
+      { id:81, nome:"D'Wine Sauvignon Blanc", descricao:"Famalicão", preco:16.00 },
+      { id:82, nome:"D'Wine Chardonnay", descricao:"Vinho branco", preco:16.00 },
+      { id:83, nome:"Lacrau Moscatel Galego", descricao:"Douro", preco:19.00 },
+      { id:84, nome:"Chocopalha Chardonnay", descricao:"Lisboa", preco:18.00 },
+      { id:85, nome:"Dona Maria", descricao:"Alentejo", preco:20.00 },
+      { id:86, nome:"Nã Te Rales", descricao:"Alentejo", preco:17.00 },
+      { id:87, nome:"Manoella", descricao:"Vinho branco", preco:23.00 },
+      { id:88, nome:"Quinta de Saes Encruzado", descricao:"Vinho branco", preco:23.00 },
+    ]
+  },
+  { id: "vinhos-tintos",
+    items: [
+      { id:89, nome:"Amnesia", descricao:"Alentejo", preco:15.00 },
+      { id:90, nome:"Bulas", descricao:"Vinho tinto", preco:17.00 },
+      { id:91, nome:"Vinha Paz", descricao:"Dão", preco:20.00 },
+      { id:92, nome:"Lento", descricao:"Vinho tinto", preco:18.00 },
+      { id:93, nome:"Nã Te Rales", descricao:"Alentejo", preco:16.00 },
+      { id:94, nome:"Dona Maria", descricao:"Alentejo", preco:25.00 },
+      { id:95, nome:"Dona Maria Grande Reserva", descricao:"Alentejo", preco:60.00 },
+      { id:96, nome:"Passagem", descricao:"Douro", preco:28.00 },
+      { id:97, nome:"Manoella", descricao:"Douro", preco:28.00 },
+      { id:98, nome:"Bulas Reserva", descricao:"Vinho tinto", preco:22.00 },
+      { id:99, nome:"Poeira", descricao:"Vinho tinto", preco:60.00 },
+      { id:100, nome:"Pintas Character", descricao:"Vinho tinto", preco:35.00 },
+    ]
+  },
+  { id: "vinhos-roses",
+    items: [
+      { id:101, nome:"D'Wine Rosé", descricao:"Vinho rosé", preco:16.00 },
+      { id:102, nome:"Quinta de Saes", descricao:"Dão", preco:16.00 },
+      { id:103, nome:"Lacrau", descricao:"Vinho rosé", preco:17.00 },
+      { id:104, nome:"Dona Maria Rosé", descricao:"Vinho rosé", preco:20.00 },
+      { id:105, nome:"Minuty", descricao:"França", preco:26.00 },
+    ]
+  },
+];
+
+/* ── Render helpers (same as index.html) ── */
+const fmt = p => p.toFixed(2).replace('.', ',') + ' €';
+function secNome(sid) { return (I18N[LANG] && I18N[LANG].sections && I18N[LANG].sections[sid] && I18N[LANG].sections[sid].nome) || (WINE_DATA.find(x=>x.id===sid)?.id || sid); }
+function itemDesc(item) { return (I18N[LANG] && I18N[LANG].items && I18N[LANG].items[item.id] && I18N[LANG].items[item.id].desc) || item.descricao; }
+function uiTxt(k) { return (I18N[LANG] && I18N[LANG].ui && I18N[LANG].ui[k]) || (UI_PT && UI_PT[k]) || k; }
+function cardHTML(item) {
+  return `<article class="card">
+    <div class="card-img-placeholder"></div>
+    <div class="card-body">
+      <h3 class="card-name">${item.nome}</h3>
+      <p class="card-desc">${itemDesc(item)}</p>
+      <div class="card-footer">
+        <span class="card-price">${fmt(item.preco)}</span>
+        <span class="card-tag">Vinho</span>
+      </div>
+    </div>
+  </article>`;
+}
+function sectionHTML(s) {
+  return `<section class="menu-section" id="section-${s.id}" aria-label="${s.id}">
+    <div class="section-header">
+      <div>
+        <h2>${secNome(s.id)}</h2>
+      </div>
+      <span class="section-count">${s.items.length} ${uiTxt('dishCount')}</span>
+    </div>
+    <div class="cards-grid">${s.items.map(cardHTML).join('')}</div>
+  </section>`;
+}
+let LANG = 'pt';
+function applyLang() {
+  const m = document.getElementById('menuMain');
+  if (m) m.innerHTML = WINE_DATA.map(sectionHTML).join('');
+  const hs = document.getElementById('heroSub');
+  if (hs) hs.textContent = uiTxt('heroSub');
+  const vn = document.getElementById('vatNote');
+  if (vn) vn.textContent = uiTxt('vatNote');
+  const fm = document.getElementById('footerMsg');
+  if (fm) fm.textContent = uiTxt('footerMsg');
+  const bt = document.getElementById('backToMenuTxt');
+  if (bt) bt.textContent = uiTxt('backToMenu');
+  /* nav buttons */
+  const nav = document.getElementById('navScroll');
+  if (nav) nav.innerHTML = WINE_DATA.map(s => `<button class="nav-btn" data-target="section-${s.id}">${secNome(s.id)}</button>`).join('');
+  /* lang button */
+  const lf = document.getElementById('langBtnFlag'), lc = document.getElementById('langBtnCode');
+  if (lf) lf.innerHTML = FLAGS[LANG] || ''; if (lc) lc.textContent = (LANG || 'pt').toUpperCase();
+}
+/* language switcher */
+function initLang() {
+  const menu = document.getElementById('langMenu');
+  if (menu) menu.innerHTML = LANGS.map(l => `<button type="button" class="lang-opt" data-lang="${l}"><span>${FLAGS[l]}</span><span>${LANG_NAMES[l]}</span></button>`).join('');
+  const btn = document.getElementById('langBtn');
+  if (btn) btn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.addEventListener('click', e => { const o = e.target.closest('.lang-opt'); if (o) { LANG = o.dataset.lang; localStorage.setItem('ohhhtc-lang', LANG); menu.classList.remove('open'); applyLang(); } });
+  /* nav scroll */
+  const nav = document.getElementById('navScroll');
+  if (nav) nav.addEventListener('click', e => { const b = e.target.closest('.nav-btn'); if (b) { const el = document.getElementById(b.dataset.target); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); } });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  LANG = localStorage.getItem('ohhhtc-lang') || 'pt';
+  if (!LANGS.includes(LANG)) LANG = 'pt';
+  initLang(); applyLang();
+});
+</script>
+</body>
+</html>

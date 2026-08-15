@@ -181,6 +181,21 @@
     -webkit-user-select: none;
     user-select: none;
   }
+  .nav-btn-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--gold);
+    border: 1.5px solid rgba(137,196,225,.5);
+    border-radius: 999px;
+    margin: 10px 6px;
+    height: calc(var(--nav-h) - 20px);
+    padding: 0 18px;
+    letter-spacing: .06em;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .nav-btn-link:hover { background: rgba(137,196,225,.15); color: var(--gold-lt); }
   .nav-btn::after {
     content: '';
     position: absolute; bottom: 0; left: 50%; right: 50%;
@@ -511,14 +526,8 @@
   <p class="hero-eyebrow">Costa da Caparica · Almada</p>
   <h1>OhhhTC<em>!!!</em> <span style="font-size:.6em;color:var(--gold);">· Vinhos</span></h1>
   <p class="hero-sub" id="heroSub">Vinhos brancos, tintos e rosés — escolhidos com critério</p>
-  <div class="hero-meta">
-    <span id="vatNote">Todos os preços incluem IVA</span>
-  </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1200 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,22 C150,44 350,0 600,22 C850,44 1050,0 1200,22 L1200,44 L0,44 Z" fill="#FDFAF4"/>
-    </svg>
-  </div>
+  <div class="hero-meta"><span id="vatNote">Todos os preços incluem IVA</span></div>
+  <div class="hero-wave"><svg viewBox="0 0 1200 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,22 C150,44 350,0 600,22 C850,44 1050,0 1200,22 L1200,44 L0,44 Z" fill="#FDFAF4"/></svg></div>
 </header>
 
 <!-- STICKY NAV -->
@@ -534,7 +543,7 @@
   </div>
 </nav>
 
-<!-- MENU CONTENT -->
+<!-- WINE CONTENT -->
 <main id="menuMain"></main>
 
 <!-- BACK TO MENU -->
@@ -546,11 +555,8 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <p class="footer-msg" id="footerMsg">Feito com carinho, servido com orgulho. Obrigado por nos escolher.</p>
-</footer>
+<footer><p class="footer-msg" id="footerMsg">Feito com carinho, servido com orgulho. Obrigado por nos escolher.</p></footer>
 
-<script src="i18n.js"></script>
 <script>
 const WINE_DATA = [
   { id: "vinhos-brancos",
@@ -595,11 +601,48 @@ const WINE_DATA = [
   },
 ];
 
-/* ── Render helpers (same as index.html) ── */
+const SEC_NAME = {
+  "pt": ["Vinhos Brancos", "Vinhos Tintos", "Vinhos Rosés"],
+  "en": ["White Wines", "Red Wines", "Rosé Wines"],
+  "fr": ["Vins Blancs", "Vins Rouges", "Vins Rosés"],
+  "es": ["Vinos Blancos", "Vinos Tintos", "Vinos Rosados"],
+  "it": ["Vini Bianchi", "Vini Rossi", "Vini Rosati"],
+  "de": ["Weißweine", "Rotweine", "Roséweine"],
+  "zh": ["白葡萄酒", "红葡萄酒", "桃红葡萄酒"],
+  "uk": ["Білі вина", "Червоні вина", "Рожеві вина"]
+};
+
+const UI_TXT = {
+  "pt": ["Voltar à ementa", "Vinhos", "Todos os preços incluem IVA", "Feito com carinho, servido com orgulho. Obrigado por nos escolher."],
+  "en": ["Back to menu", "Wines", "All prices include VAT", "Made with care, served with pride. Thank you for choosing us."],
+  "fr": ["Retour au menu", "Vins", "Tous les prix incluent la TVA", "Fait avec soin, servi avec fierté. Merci de nous avoir choisis."],
+  "es": ["Volver al menú", "Vinos", "Todos los precios incluyen IVA", "Hecho con cariño, servido con orgullo. Gracias por elegirnos."],
+  "it": ["Torna al menu", "Vini", "Tutti i prezzi includono IVA", "Fatto con cura, servito con orgoglio. Grazie per averci scelto."],
+  "de": ["Zurück zum Menü", "Weine", "Alle Preise inkl. MwSt.", "Mit Sorgfalt zubereitet, mit Stolz serviert. Danke, dass Sie uns gewählt haben."],
+  "zh": ["返回菜单", "葡萄酒", "所有价格含增值税", "用心烹制，自豪呈献。感谢您的选择。"],
+  "uk": ["Повернутися до меню", "Вина", "Усі ціни включають ПДВ", "Приготовано з турботою, подано з гордістю. Дякуємо, що обрали нас."]
+};
+
+const FLAG_EMOJI = {"pt": "🇵🇹", "en": "🇬🇧", "fr": "🇫🇷", "es": "🇪🇸", "it": "🇮🇹", "de": "🇩🇪", "zh": "🇨🇳", "uk": "🇺🇦"};
+
+const LANG_NM = {"pt": "Português", "en": "English", "fr": "Français", "es": "Español", "it": "Italiano", "de": "Deutsch", "zh": "中文", "uk": "Українська"};
+
+
+const LANGS_LIST = ["pt", "en", "fr", "es", "it", "de", "zh", "uk"];
 const fmt = p => p.toFixed(2).replace('.', ',') + ' €';
-function secNome(sid) { return (I18N[LANG] && I18N[LANG].sections && I18N[LANG].sections[sid] && I18N[LANG].sections[sid].nome) || (WINE_DATA.find(x=>x.id===sid)?.id || sid); }
-function itemDesc(item) { return (I18N[LANG] && I18N[LANG].items && I18N[LANG].items[item.id] && I18N[LANG].items[item.id].desc) || item.descricao; }
-function uiTxt(k) { return (I18N[LANG] && I18N[LANG].ui && I18N[LANG].ui[k]) || (UI_PT && UI_PT[k]) || k; }
+let LANG = 'pt';
+
+function secName(sid) {
+  const idxMap = { 'vinhos-brancos':0, 'vinhos-tintos':1, 'vinhos-roses':2 };
+  const arr = SEC_NAME[LANG];
+  return (arr && idxMap[sid]!==undefined && arr[idxMap[sid]]) || sid;
+}
+function uiTxt(k) {
+  const map = { backMenu:0, wines:1, vat:2, footer:3 };
+  const idx = map[k];
+  return (UI_TXT[LANG] && idx!==undefined && UI_TXT[LANG][idx]) || UI_TXT['pt'][idx] || k;
+}
+function itemDesc(item) { return item.descricao; }
 function cardHTML(item) {
   return `<article class="card">
     <div class="card-img-placeholder"></div>
@@ -613,50 +656,39 @@ function cardHTML(item) {
     </div>
   </article>`;
 }
-function sectionHTML(s) {
+function sectionHTML(s, i) {
   return `<section class="menu-section" id="section-${s.id}" aria-label="${s.id}">
     <div class="section-header">
-      <div>
-        <h2>${secNome(s.id)}</h2>
-      </div>
-      <span class="section-count">${s.items.length} ${uiTxt('dishCount')}</span>
+      <div><h2>${secName(s.id)}</h2></div>
+      <span class="section-count">${s.items.length}</span>
     </div>
     <div class="cards-grid">${s.items.map(cardHTML).join('')}</div>
-  </section>`;
+  </section>${i < WINE_DATA.length-1 ? '<div class="section-divider"></div>' : ''}`;
 }
-let LANG = 'pt';
 function applyLang() {
   const m = document.getElementById('menuMain');
   if (m) m.innerHTML = WINE_DATA.map(sectionHTML).join('');
-  const hs = document.getElementById('heroSub');
-  if (hs) hs.textContent = uiTxt('heroSub');
-  const vn = document.getElementById('vatNote');
-  if (vn) vn.textContent = uiTxt('vatNote');
-  const fm = document.getElementById('footerMsg');
-  if (fm) fm.textContent = uiTxt('footerMsg');
-  const bt = document.getElementById('backToMenuTxt');
-  if (bt) bt.textContent = uiTxt('backToMenu');
-  /* nav buttons */
+  const hs = document.getElementById('heroSub'); if (hs) hs.textContent = uiTxt('hero') || 'Vinhos brancos, tintos e rosés — escolhidos com critério';
+  const vn = document.getElementById('vatNote'); if (vn) vn.textContent = uiTxt('vat');
+  const fm = document.getElementById('footerMsg'); if (fm) fm.textContent = uiTxt('footer');
+  const bt = document.getElementById('backToMenuTxt'); if (bt) bt.textContent = uiTxt('backMenu');
   const nav = document.getElementById('navScroll');
-  if (nav) nav.innerHTML = WINE_DATA.map(s => `<button class="nav-btn" data-target="section-${s.id}">${secNome(s.id)}</button>`).join('');
-  /* lang button */
-  const lf = document.getElementById('langBtnFlag'), lc = document.getElementById('langBtnCode');
-  if (lf) lf.innerHTML = FLAGS[LANG] || ''; if (lc) lc.textContent = (LANG || 'pt').toUpperCase();
+  if (nav) nav.innerHTML = WINE_DATA.map((s,i) => `<button class="nav-btn${i===0?' active':''}" data-target="section-${s.id}">${secName(s.id)}</button>`).join('');
+  const lf = document.getElementById('langBtnFlag'); if (lf) lf.textContent = FLAG_EMOJI[LANG] || '';
+  const lc = document.getElementById('langBtnCode'); if (lc) lc.textContent = (LANG||'pt').toUpperCase();
 }
-/* language switcher */
 function initLang() {
   const menu = document.getElementById('langMenu');
-  if (menu) menu.innerHTML = LANGS.map(l => `<button type="button" class="lang-opt" data-lang="${l}"><span>${FLAGS[l]}</span><span>${LANG_NAMES[l]}</span></button>`).join('');
+  if (menu) menu.innerHTML = LANGS_LIST.map(l => `<button type="button" class="lang-opt" data-lang="${l}"><span>${FLAG_EMOJI[l]}</span><span>${LANG_NM[l]}</span></button>`).join('');
   const btn = document.getElementById('langBtn');
-  if (btn) btn.addEventListener('click', () => menu.classList.toggle('open'));
-  menu.addEventListener('click', e => { const o = e.target.closest('.lang-opt'); if (o) { LANG = o.dataset.lang; localStorage.setItem('ohhhtc-lang', LANG); menu.classList.remove('open'); applyLang(); } });
-  /* nav scroll */
+  if (btn) btn.addEventListener('click', () => { if (menu) menu.classList.toggle('open'); });
+  if (menu) menu.addEventListener('click', e => { const o = e.target.closest('.lang-opt'); if (o) { LANG = o.dataset.lang; localStorage.setItem('ohhhtc-lang', LANG); if(menu)menu.classList.remove('open'); applyLang(); } });
   const nav = document.getElementById('navScroll');
   if (nav) nav.addEventListener('click', e => { const b = e.target.closest('.nav-btn'); if (b) { const el = document.getElementById(b.dataset.target); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); } });
 }
 document.addEventListener('DOMContentLoaded', () => {
-  LANG = localStorage.getItem('ohhhtc-lang') || 'pt';
-  if (!LANGS.includes(LANG)) LANG = 'pt';
+  LANG = (localStorage.getItem('ohhhtc-lang') || 'pt');
+  if (!LANGS_LIST.includes(LANG)) LANG = 'pt';
   initLang(); applyLang();
 });
 </script>

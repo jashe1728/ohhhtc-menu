@@ -237,6 +237,24 @@
     color: var(--navy); font-weight: 600;
     text-transform: uppercase;
   }
+  .back-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 4px 0 16px;
+    padding: 7px 16px;
+    background: var(--navy);
+    color: var(--pearl);
+    border: none;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: .82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, transform .15s ease;
+  }
+  .back-menu-btn:hover { background: var(--mid); transform: translateY(-1px); }
+  .back-menu-btn svg { width: 14px; height: 14px; }
 
   /* ── GRID ─────────────────────────────────────────── */
   .cards-grid {
@@ -657,6 +675,89 @@ const MENU_DATA = [
     ]
   },
   {
+    id: "vinhos-brancos", nome: "Vinhos Brancos",
+    subtitulo: "Da vinha ao copo, frescura e elegância",
+    icone: "🍷",
+    items: [
+      { id:78, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:79, nome:"Bulas", preco:17.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:80, nome:"Caladesa", preco:16.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:81, nome:"D'Wine Sauvignon Blanc", preco:16.00, descricao:"Famalicão", tag:"Vinho" },
+      { id:82, nome:"D'Wine Chardonnay", preco:16.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:83, nome:"Lacrau Moscatel Galego", preco:19.00, descricao:"Douro", tag:"Vinho" },
+      { id:84, nome:"Chocopalha Chardonnay", preco:18.00, descricao:"Lisboa", tag:"Vinho" },
+      { id:85, nome:"Dona Maria", preco:20.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:86, nome:"Nã Te Rales", preco:17.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:87, nome:"Manoella", preco:23.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:88, nome:"Quinta de Saes Encruzado", preco:23.00, descricao:"Vinho branco", tag:"Vinho" },
+    ]
+  },
+  {
+    id: "vinhos-tintos", nome: "Vinhos Tintos",
+    subtitulo: "Corpo, carácter e história em cada garrafa",
+    icone: "🍷",
+    items: [
+      { id:78, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:79, nome:"Bulas", preco:17.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:80, nome:"Caladesa", preco:16.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:81, nome:"D'Wine Sauvignon Blanc", preco:16.00, descricao:"Famalicão", tag:"Vinho" },
+      { id:82, nome:"D'Wine Chardonnay", preco:16.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:83, nome:"Lacrau Moscatel Galego", preco:19.00, descricao:"Douro", tag:"Vinho" },
+      { id:84, nome:"Chocopalha Chardonnay", preco:18.00, descricao:"Lisboa", tag:"Vinho" },
+      { id:85, nome:"Dona Maria", preco:20.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:86, nome:"Nã Te Rales", preco:17.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:87, nome:"Manoella", preco:23.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:88, nome:"Quinta de Saes Encruzado", preco:23.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:89, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:90, nome:"Bulas", preco:17.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:91, nome:"Vinha Paz", preco:20.00, descricao:"Dão", tag:"Vinho" },
+      { id:92, nome:"Lento", preco:18.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:93, nome:"Nã Te Rales", preco:16.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:94, nome:"Dona Maria", preco:25.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:95, nome:"Dona Maria Grande Reserva", preco:60.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:96, nome:"Passagem", preco:28.00, descricao:"Douro", tag:"Vinho" },
+      { id:97, nome:"Manoella", preco:28.00, descricao:"Douro", tag:"Vinho" },
+      { id:98, nome:"Bulas Reserva", preco:22.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:99, nome:"Poeira", preco:60.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:100, nome:"Pintas Character", preco:35.00, descricao:"Vinho tinto", tag:"Vinho" },
+    ]
+  },
+  {
+    id: "vinhos-roses", nome: "Vinhos Rosés",
+    subtitulo: "Suaves e sedutores, para os dias de sol",
+    icone: "🍷",
+    items: [
+      { id:78, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:79, nome:"Bulas", preco:17.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:80, nome:"Caladesa", preco:16.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:81, nome:"D'Wine Sauvignon Blanc", preco:16.00, descricao:"Famalicão", tag:"Vinho" },
+      { id:82, nome:"D'Wine Chardonnay", preco:16.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:83, nome:"Lacrau Moscatel Galego", preco:19.00, descricao:"Douro", tag:"Vinho" },
+      { id:84, nome:"Chocopalha Chardonnay", preco:18.00, descricao:"Lisboa", tag:"Vinho" },
+      { id:85, nome:"Dona Maria", preco:20.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:86, nome:"Nã Te Rales", preco:17.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:87, nome:"Manoella", preco:23.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:88, nome:"Quinta de Saes Encruzado", preco:23.00, descricao:"Vinho branco", tag:"Vinho" },
+      { id:89, nome:"Amnesia", preco:15.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:90, nome:"Bulas", preco:17.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:91, nome:"Vinha Paz", preco:20.00, descricao:"Dão", tag:"Vinho" },
+      { id:92, nome:"Lento", preco:18.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:93, nome:"Nã Te Rales", preco:16.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:94, nome:"Dona Maria", preco:25.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:95, nome:"Dona Maria Grande Reserva", preco:60.00, descricao:"Alentejo", tag:"Vinho" },
+      { id:96, nome:"Passagem", preco:28.00, descricao:"Douro", tag:"Vinho" },
+      { id:97, nome:"Manoella", preco:28.00, descricao:"Douro", tag:"Vinho" },
+      { id:98, nome:"Bulas Reserva", preco:22.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:99, nome:"Poeira", preco:60.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:100, nome:"Pintas Character", preco:35.00, descricao:"Vinho tinto", tag:"Vinho" },
+      { id:101, nome:"D'Wine Rosé", preco:16.00, descricao:"Vinho rosé", tag:"Vinho" },
+      { id:102, nome:"Quinta de Saes", preco:16.00, descricao:"Dão", tag:"Vinho" },
+      { id:103, nome:"Lacrau", preco:17.00, descricao:"Vinho rosé", tag:"Vinho" },
+      { id:104, nome:"Dona Maria Rosé", preco:20.00, descricao:"Vinho rosé", tag:"Vinho" },
+      { id:105, nome:"Minuty", preco:26.00, descricao:"França", tag:"Vinho" },
+    ]
+  },
+  {
     id: "bebidas-sem-alcool", nome: "Sem Álcool",
     subtitulo: "Frescura sem compromissos",
     icone: "🍹",
@@ -797,6 +898,24 @@ const SECTION_ICONS = {
     <circle cx="26" cy="28" r="1.8"/>
     <circle cx="23" cy="36" r="1.8"/>
   </svg>`,
+  'vinhos-brancos': `<svg class="section-icon" viewBox="0 0 64 56" fill="none" stroke="#1B2B4B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M16,6 L34,6 L29,26 C28,30 22,30 21,26 Z"/>
+    <path d="M25,30 L25,40"/>
+    <path d="M17,46 L33,46"/>
+    <circle cx="21" cy="18" r="1.5"/><circle cx="29" cy="18" r="1.5"/>
+  </svg>`,
+  'vinhos-tintos': `<svg class="section-icon" viewBox="0 0 64 56" fill="none" stroke="#1B2B4B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M16,6 L34,6 L29,26 C28,30 22,30 21,26 Z"/>
+    <path d="M25,30 L25,40"/>
+    <path d="M17,46 L33,46"/>
+    <path d="M19,15 L31,15"/>
+  </svg>`,
+  'vinhos-roses': `<svg class="section-icon" viewBox="0 0 64 56" fill="none" stroke="#1B2B4B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M16,6 L34,6 L29,26 C28,30 22,30 21,26 Z"/>
+    <path d="M25,30 L25,40"/>
+    <path d="M17,46 L33,46"/>
+    <circle cx="25" cy="16" r="2.5"/>
+  </svg>`,
   sobremesas: `<svg class="section-icon" viewBox="0 0 64 56" fill="none" stroke="#1B2B4B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M12,44 L38,44 L25,14 Z"/>
     <path d="M19,34 L32,28 M23,25 L30,21"/>
@@ -809,8 +928,13 @@ function sectionHTML(s, i) {
   const divider = i < MENU_DATA.length - 1
     ? '<div class="section-divider"><svg class="divider-waves" viewBox="0 0 1200 100" fill="none" stroke="#2D5086" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M0,0 C120,-24 240,24 360,0 C480,-24 600,24 720,0 C840,-24 960,24 1080,0 C1140,-12 1170,-18 1200,-28" transform="translate(0,20)"/><path d="M0,0 C120,-24 240,24 360,0 C480,-24 600,24 720,0 C840,-24 960,24 1080,0 C1140,-12 1170,-18 1200,-28" transform="translate(0,35)"/><path d="M0,0 C120,-24 240,24 360,0 C480,-24 600,24 720,0 C840,-24 960,24 1080,0 C1140,-12 1170,-18 1200,-28" transform="translate(0,50)"/><path d="M0,0 C120,-24 240,24 360,0 C480,-24 600,24 720,0 C840,-24 960,24 1080,0 C1140,-12 1170,-18 1200,-28" transform="translate(0,65)"/><path d="M0,0 C120,-24 240,24 360,0 C480,-24 600,24 720,0 C840,-24 960,24 1080,0 C1140,-12 1170,-18 1200,-28" transform="translate(0,80)"/></svg></div>'
     : '';
+  const isWine = /^vinhos-/.test(s.id);
+  const backBtn = isWine
+    ? `<button class="back-menu-btn" data-back-to="section-entradas" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg><span>${uiTxt('backToMenu')}</span></button>`
+    : '';
   return `
     <section class="menu-section" id="section-${s.id}" aria-label="${s.nome}">
+      ${backBtn}
       <div class="section-header">
         ${SECTION_ICONS[s.id] || `<span class="section-pill">${s.icone}</span>`}
         <div>
@@ -864,6 +988,21 @@ function initNav() {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       /* Re-enable observer after scroll settles */
+      scrollTimer = setTimeout(() => { isScrolling = false; }, 900);
+    });
+
+    /* ── Back-to-menu buttons (wine sections) ── */
+    document.addEventListener('click', e => {
+      const back = e.target.closest('.back-menu-btn');
+      if (!back) return;
+      const el = document.getElementById(back.dataset.backTo);
+      if (!el) return;
+      isScrolling = true;
+      clearTimeout(scrollTimer);
+      buttons.forEach(b => b.classList.remove('active'));
+      const first = buttons[0];
+      if (first) first.classList.add('active');
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       scrollTimer = setTimeout(() => { isScrolling = false; }, 900);
     });
   }

@@ -32,6 +32,7 @@ const UI_PT = {
   langLabel:   'Idioma',
   backToMenu:  'Voltar à ementa',
   winesNav:     'Vinhos',
+  priceReview:  'Para rever',
   footerMsg:   'Feito com carinho, servido com orgulho. Obrigado por nos escolher.'
 };
 
@@ -47,6 +48,7 @@ en: {
     langLabel: 'Language',
     backToMenu: 'Back to menu',
     winesNav:     'Wines',
+    priceReview: 'For review',
     footerMsg: 'Made with care, served with pride. Thank you for choosing us.'
   },
   sections: {
@@ -58,6 +60,7 @@ en: {
     'vinhos-brancos': { nome: 'White Wines', subtitulo: 'From the vine to the glass, freshness and elegance' },
     'vinhos-tintos':   { nome: 'Red Wines', subtitulo: 'Body, character and history in every bottle' },
     'vinhos-roses':    { nome: 'Rosé Wines', subtitulo: 'Soft and seductive, for sunny days' },
+    'vinhos-espumantes': { nome: 'Sparkling Wines', subtitulo: 'Bubbles for the joyful moments' },
     'bebidas-sem-alcool': { nome: 'Non-Alcoholic',    subtitulo: 'Refreshment without compromise' },
     sobremesas:        { nome: 'Desserts',            subtitulo: 'Calm after the tide' }
   },
@@ -167,6 +170,8 @@ en: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': 'To Start', Entrada: 'Starter', Destaque: 'Featured', Clássico: 'Classic',
@@ -189,6 +194,7 @@ fr: {
     langLabel: 'Langue',
     backToMenu: 'Retour au menu',
     winesNav:     'Vins',
+    priceReview: 'À revoir',
     footerMsg: 'Fait avec soin, servi avec fierté. Merci de nous avoir choisis.'
   },
   sections: {
@@ -200,6 +206,7 @@ fr: {
     'vinhos-brancos': { nome: 'Vins Blancs', subtitulo: 'De la vigne au verre, fraîcheur et élégance' },
     'vinhos-tintos':   { nome: 'Vins Rouges', subtitulo: 'Corps, caractère et histoire dans chaque bouteille' },
     'vinhos-roses':    { nome: 'Vins Rosés', subtitulo: 'Douces et séduisantes, pour les jours ensoleillés' },
+    'vinhos-espumantes': { nome: 'Vins Effervescents', subtitulo: 'Des bulles pour les moments de joie' },
     'bebidas-sem-alcool': { nome: 'Sans Alcool',       subtitulo: 'Fraîcheur sans compromis' },
     sobremesas:        { nome: 'Desserts',             subtitulo: 'Le calme après la marée' }
   },
@@ -309,6 +316,8 @@ fr: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': 'Pour Commencer', Entrada: 'Entrée', Destaque: 'Signature', Clássico: 'Classique',
@@ -330,6 +339,7 @@ es: {
     langLabel: 'Idioma',
     backToMenu: 'Volver al menú',
     winesNav:     'Vinos',
+    priceReview: 'Para revisar',
     footerMsg: 'Hecho con cariño, servido con orgullo. Gracias por elegirnos.'
   },
   sections: {
@@ -341,6 +351,7 @@ es: {
     'vinhos-brancos': { nome: 'Vinos Blancos', subtitulo: 'De la viña al vaso, frescura y elegancia' },
     'vinhos-tintos':   { nome: 'Vinos Tintos', subtitulo: 'Cuerpo, carácter e historia en cada botella' },
     'vinhos-roses':    { nome: 'Vinos Rosados', subtitulo: 'Suaves y seductoras, para días de sol' },
+    'vinhos-espumantes': { nome: 'Vinos Espumosos', subtitulo: 'Burbujas para los momentos alegres' },
     'bebidas-sem-alcool': { nome: 'Sin Alcohol',        subtitulo: 'Frescura sin compromisos' },
     sobremesas:        { nome: 'Postres',               subtitulo: 'La calma después de la marea' }
   },
@@ -450,6 +461,8 @@ es: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': 'Para Empezar', Entrada: 'Entrante', Destaque: 'Destacado', Clássico: 'Clásico',
@@ -472,6 +485,7 @@ it: {
     langLabel: 'Lingua',
     backToMenu: 'Torna al menu',
     winesNav:     'Vini',
+    priceReview: 'Da rivedere',
     footerMsg: 'Fatto con cura, servito con orgoglio. Grazie per averci scelto.'
   },
   sections: {
@@ -483,6 +497,7 @@ it: {
     'vinhos-brancos': { nome: 'Vini Bianchi', subtitulo: 'Dalla vigna al calice, freschezza ed eleganza' },
     'vinhos-tintos':   { nome: 'Vini Rossi', subtitulo: 'Corpo, carattere e storia in ogni bottiglia' },
     'vinhos-roses':    { nome: 'Vini Rosati', subtitulo: 'Delicati e seducenti, per le giornate di sole' },
+    'vinhos-espumantes': { nome: 'Vini Spumanti', subtitulo: 'Bollicine per i momenti di gioia' },
     'bebidas-sem-alcool': { nome: 'Analcolici',         subtitulo: 'Freschezza senza compromessi' },
     sobremesas:        { nome: 'Dolci',                 subtitulo: 'La calma dopo la marea' }
   },
@@ -592,6 +607,8 @@ it: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': 'Per Iniziare', Entrada: 'Antipasto', Destaque: 'In Evidenza', Clássico: 'Classico',
@@ -613,6 +630,7 @@ de: {
     langLabel: 'Sprache',
     backToMenu: 'Zurück zum Menü',
     winesNav:     'Weine',
+    priceReview: 'Zur Überprüfung',
     footerMsg: 'Mit Sorgfalt zubereitet, mit Stolz serviert. Danke, dass Sie uns gewählt haben.'
   },
   sections: {
@@ -624,6 +642,7 @@ de: {
     'vinhos-brancos': { nome: 'Weißweine', subtitulo: 'Vom Weinstock ins Glas, Frische und Eleganz' },
     'vinhos-tintos':   { nome: 'Rotweine', subtitulo: 'Körper, Charakter und Geschichte in jeder Flasche' },
     'vinhos-roses':    { nome: 'Roséweine', subtitulo: 'Sanft und verführerisch, für sonnige Tage' },
+    'vinhos-espumantes': { nome: 'Schaumweine', subtitulo: 'Bläschen für die fröhlichen Momente' },
     'bebidas-sem-alcool': { nome: 'Alkoholfrei',       subtitulo: 'Erfrischung ohne Kompromisse' },
     sobremesas:        { nome: 'Nachspeisen',          subtitulo: 'Die Ruhe nach der Flut' }
   },
@@ -733,6 +752,8 @@ de: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': 'Zum Start', Entrada: 'Vorspeise', Destaque: 'Empfohlen', Clássico: 'Klassiker',
@@ -755,6 +776,7 @@ zh: {
     langLabel: '语言',
     backToMenu: '返回菜单',
     winesNav:     '葡萄酒',
+    priceReview: '待确认',
     footerMsg: '用心烹制，自豪呈献。感谢您的选择。'
   },
   sections: {
@@ -766,6 +788,7 @@ zh: {
     'vinhos-brancos': { nome: '白葡萄酒', subtitulo: '从葡萄园到杯中，清新优雅' },
     'vinhos-tintos':   { nome: '红葡萄酒', subtitulo: '每一瓶都充满酒体、个性与历史' },
     'vinhos-roses':    { nome: '桃红葡萄酒', subtitulo: '柔和迷人，适合阳光明媚的日子' },
+    'vinhos-espumantes': { nome: '起泡葡萄酒', subtitulo: '为欢乐时刻而生的气泡' },
     'bebidas-sem-alcool': { nome: '无酒精饮品',        subtitulo: '畅快清爽，毫不妥协' },
     sobremesas:        { nome: '甜品',                 subtitulo: '潮水退去后的宁静' }
   },
@@ -875,6 +898,8 @@ zh: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': '开胃', Entrada: '前菜', Destaque: '招牌', Clássico: '经典',
@@ -896,6 +921,7 @@ uk: {
     langLabel: 'Мова',
     backToMenu: 'Повернутися до меню',
     winesNav:     'Вина',
+    priceReview: 'На розгляд',
     footerMsg: 'Приготовано з турботою, подано з гордістю. Дякуємо, що обрали нас.'
   },
   sections: {
@@ -907,6 +933,7 @@ uk: {
     'vinhos-brancos': { nome: 'Білі вина', subtitulo: 'Від лози до келиха, свіжість і елегантність' },
     'vinhos-tintos':   { nome: 'Червоні вина', subtitulo: 'Тіло, характер та історія в кожній пляшці' },
     'vinhos-roses':    { nome: 'Рожеві вина', subtitulo: 'Ніжні та спокусливі, для сонячних днів' },
+    'vinhos-espumantes': { nome: 'Ігристі вина', subtitulo: 'Бульбашки для радісних моментів' },
     'bebidas-sem-alcool': { nome: 'Безалкогольні',    subtitulo: 'Освіження без компромісів' },
     sobremesas:        { nome: 'Десерти',            subtitulo: 'Спокій після припливу' }
   },
@@ -1016,6 +1043,8 @@ uk: {
     103: { desc: 'Vinho rosé' },
     104: { desc: 'Vinho rosé' },
     105: { desc: 'França' },
+    106: { desc: 'Bairrada' },
+    107: { desc: 'Bairrada' },
   },
   tags: {
     'Para Começar': 'На початок', Entrada: 'Закуска', Destaque: 'Хіт', Clássico: 'Класика',

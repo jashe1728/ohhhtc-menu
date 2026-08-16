@@ -1064,6 +1064,7 @@ function applyLangUI() {
   set('heroSub', uiTxt('heroSub'));
   set('vatNote', uiTxt('vatNote'));
   set('backToMenu', uiTxt('backToMenu'));
+  set('backMenuTxt', uiTxt('backToMenu'));
   set('winesNav', uiTxt('winesNav'));
   set('footerMsg', uiTxt('footerMsg'));
   const btn = document.getElementById('scrollTopBtn');

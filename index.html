@@ -858,9 +858,9 @@ function sectionHTML(s, i) {
 
 function buildNav() {
   document.getElementById('navScroll').innerHTML = MENU_DATA.map((s,i) =>
-    `<button class="nav-btn${i===0?' active':''}" data-target="section-${s.id}">${secNome(s)}</button>`
-  ).join('') +
-    `<a class="nav-btn nav-btn-link" href="vinhos.html">${uiTxt('winesNav')}</a>`;
+    `<button class="nav-btn${i===0?' active':''}" data-target="section-${s.id}">${secNome(s)}</button>` +
+    (s.id==='bebidas-alcoolicas' ? `<a class="nav-btn nav-btn-link" href="vinhos.html">${uiTxt('winesNav')}</a>` : '')
+  ).join('');
 }
 
 function buildMenu() {
